@@ -19,6 +19,12 @@ import java.util.List;
  */
 public class UsuarioDAO {
 
+     private ManejadorConexiones manejadorConexiones;
+
+    public UsuarioDAO() {
+        this.manejadorConexiones = new ManejadorConexiones();
+    }
+    
     public Usuario obtenerUsuarioPorCorreo(String correoElectronico) {
 
         return null;

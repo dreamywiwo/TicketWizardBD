@@ -26,6 +26,7 @@ public class TransaccionDAO {
         this.manejadorConexiones = manejadorConexiones;
     }
     
+    // cambiar a parametro idUsuario y ajustar la consulta
     public List<TransaccionDTO> obtenerTransaccionesPorUsuario(Integer idVendedor, Integer idComprador){
         
          List<TransaccionDTO> listaTransacciones = new ArrayList<>();

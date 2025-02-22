@@ -35,11 +35,12 @@ public class BoletoDAO {
                            SELECT 
                            	precio,
                            	disponibilidad,
+                                tipo,
                            	numAsiento,
                            	fila,
                            	idEvento,
                            	idUsuario
-                               FROM Boletos WHERE idEvento = ? AND (Disponibilidad = 'Disponible' OR 'Reventa');
+                               FROM Boletos WHERE idEvento = ? AND Disponibilidad = 'Disponible';
                            """;
         try{
             Connection conexion = manejadorConexiones.crearConexion();
@@ -55,6 +56,7 @@ public class BoletoDAO {
                         
                         resultadosConsulta.getFloat("precio"),
                         resultadosConsulta.getString("disponibilidad"),
+                        resultadosConsulta.getString("tipo"),
                         resultadosConsulta.getInt("numAsiento"),
                         resultadosConsulta.getString("fila")
 
@@ -78,6 +80,7 @@ public class BoletoDAO {
                            SELECT 
                                 numSerie,
                            	precio,
+                                tipo,
                            	numAsiento,
                            	fila,
                            	idEvento,
@@ -95,8 +98,9 @@ public class BoletoDAO {
 
                 BoletoDTO boleto = new BoletoDTO(
                         
-                        resultadosConsulta.getInt("numSerie"),
+                        resultadosConsulta.getInt("numSerie"),                     
                         resultadosConsulta.getFloat("precio"),
+                        resultadosConsulta.getString("tipo"),
                         resultadosConsulta.getInt("numAsiento"),
                         resultadosConsulta.getString("fila")
 
@@ -194,10 +198,14 @@ public class BoletoDAO {
     
     public boolean venderBoleto(Integer numSerie, Integer idVendedor) {
     String codigoSQLSelect = """
-                              SELECT idUsuario, disponibilidad FROM boletos WHERE numSerie = ?
+                              SELECT idUsuario, disponibilidad 
+                              FROM boletos 
+                              WHERE numSerie = ?
                               """;
     String codigoSQLUpdate = """
-                              UPDATE boletos SET disponibilidad = 'Reventa' WHERE numSerie = ?
+                              UPDATE boletos 
+                              SET disponibilidad = 'Disponible', tipo = 'Reventa' 
+                              WHERE numSerie = ?
                               """;
 
     try {

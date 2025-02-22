@@ -1,4 +1,5 @@
 itson\ticketwizard\persistencia\UsuarioDAO.class
+itson\ticketwizard\entidades\DireccionUsuario.class
 itson\ticketwizard\dtos\TransaccionDTO.class
 itson\ticketwizard\entidades\Historial.class
 itson\ticketwizard\entidades\Transaccion.class
@@ -12,6 +13,7 @@ itson\ticketwizard\persistencia\TransaccionDAO.class
 itson\ticketwizard\persistencia\HistorialDAO.class
 itson\ticketwizard\persistencia\ManejadorConexiones.class
 itson\ticketwizard\entidades\Boleto.class
+itson\ticketwizard\dtos\DireccionUsuarioDTO.class
 itson\ticketwizard\persistencia\BoletoDAO.class
 itson\ticketwizard\persistencia\ApartadoDAO.class
 itson\ticketwizard\entidades\Evento.class
@@ -19,3 +21,4 @@ itson\ticketwizard\dtos\EventoDTO.class
 itson\ticketwizard\dtos\UsuarioDTO.class
 itson\ticketwizard\entidades\Apartado.class
 itson\ticketwizard\persistencia\EventoDAO.class
+itson\ticketwizard\control\BoletoControl.class

@@ -11,30 +11,33 @@ public class BoletoDTO {
     private float precio;
     private Integer numControl;
     private String disponibilidad;
+    private String tipo;
     private Integer numAsiento;
     private String fila;
     private Integer idEvento;
     private Integer idUsuario;
 
-    public BoletoDTO(Integer numSerie, float precio, Integer numControl, String disponibilidad, Integer numAsiento, String fila, Integer idEvento, Integer idUsuario) {
+    public BoletoDTO(Integer numSerie, float precio, Integer numControl, String disponibilidad, String tipo, Integer numAsiento, String fila, Integer idEvento, Integer idUsuario) {
         this.numSerie = numSerie;
         this.precio = precio;
         this.numControl = numControl;
         this.disponibilidad = disponibilidad;
+        this.tipo = tipo;
         this.numAsiento = numAsiento;
         this.fila = fila;
         this.idEvento = idEvento;
         this.idUsuario = idUsuario;
     }
 
-    public BoletoDTO(float precio, String disponibilidad, Integer numAsiento, String fila) {
+    public BoletoDTO(float precio, String disponibilidad, String tipo, Integer numAsiento, String fila) {
         this.precio = precio;
         this.disponibilidad = disponibilidad;
+        this.tipo = tipo;
         this.numAsiento = numAsiento;
         this.fila = fila;
     }
 
-    public BoletoDTO(Integer numSerie, float precio, Integer numAsiento, String fila) {
+    public BoletoDTO(Integer numSerie, float precio, String tipo, Integer numAsiento, String fila) {
         this.numSerie = numSerie;
         this.precio = precio;
         this.numAsiento = numAsiento;

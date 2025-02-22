@@ -16,6 +16,7 @@ public class Boleto {
     private float precio;
     private Integer numControl;
     private String disponibilidad;
+    private String tipo;
     private Integer numAsiento;
     private String fila;
     private Integer idEvento;
@@ -24,21 +25,23 @@ public class Boleto {
     public Boleto() {
     }
 
-    public Boleto(float precio, Integer numControl, String disponibilidad, Integer numAsiento, String fila, Integer idEvento, Integer idUsuario) {
+    public Boleto(float precio, Integer numControl, String disponibilidad, String tipo, Integer numAsiento, String fila, Integer idEvento, Integer idUsuario) {
         this.precio = precio;
         this.numControl = numControl;
         this.disponibilidad = disponibilidad;
+        this.tipo = tipo;
         this.numAsiento = numAsiento;
         this.fila = fila;
         this.idEvento = idEvento;
         this.idUsuario = idUsuario;
     }
 
-    public Boleto(Integer numSerie, float precio, Integer numControl, String disponibilidad, Integer numAsiento, String fila, Integer idEvento, Integer idUsuario) {
+    public Boleto(Integer numSerie, float precio, Integer numControl, String disponibilidad, String tipo, Integer numAsiento, String fila, Integer idEvento, Integer idUsuario) {
         this.numSerie = numSerie;
         this.precio = precio;
         this.numControl = numControl;
         this.disponibilidad = disponibilidad;
+        this.tipo = tipo;
         this.numAsiento = numAsiento;
         this.fila = fila;
         this.idEvento = idEvento;

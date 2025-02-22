@@ -25,7 +25,7 @@ public class UsuarioDAO {
     public UsuarioDAO() {
         this.manejadorConexiones = new ManejadorConexiones();
     }
-    
+
     public UsuarioDTO obtenerUsuarioPorCorreo(String correoElectronico) {
         
         String codigoSQL = """
@@ -45,15 +45,16 @@ public class UsuarioDAO {
             
             comando.setString(1, correoElectronico);
 
-            ResultSet rs = comando.executeQuery();
-            if (rs.next()) {
+            ResultSet resultadosConsulta = comando.executeQuery();
+            if (resultadosConsulta.next()) {
                 usuario = new UsuarioDTO(
-                    rs.getString("correoElectronico"),
-                    rs.getString("contrasena")
+                    resultadosConsulta.getString("correoElectronico"),
+                    resultadosConsulta.getString("contrasena")
                 );
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex){
+            System.err.println("Error al consultar el usuario: " + ex.getMessage());
+                           
         }
 
         return usuario;
@@ -106,9 +107,53 @@ public class UsuarioDAO {
 
     }
 
-    public boolean verificarCredenciales(String correoElectronico, String contrasena) {
+    public UsuarioDTO iniciarSesion(String correoElectronico, String contrasena) {
+        
+        String codigoSQL = """
+                           SELECT 
+                           	idUsuario,
+                                nombres,
+                                apellidoPaterno,
+                                apellidoMaterno,
+                                fechaNacimiento,
+                                numTelefono,
+                                correoElectronico,
+                                contrasena,
+                                saldo
+                           FROM Usuarios 
+                           WHERE correoElectronico = ? AND contrasena = ?;
+                           """;
+        
+        UsuarioDTO usuario = null;
+        
+        try {
+            Connection conexion = manejadorConexiones.crearConexion();
+   
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            
+            comando.setString(1, correoElectronico);
+            comando.setString(2, contrasena);
 
-        return false;
+
+            ResultSet resultadosConsulta = comando.executeQuery();
+            if (resultadosConsulta.next()) {
+                usuario = new UsuarioDTO(
+                    resultadosConsulta.getInt("idUsuario"),
+                    resultadosConsulta.getString("nombres"),
+                    resultadosConsulta.getString("apellidoPaterno"),
+                    resultadosConsulta.getString("apellidoMaterno"),
+                    resultadosConsulta.getDate("fechaNacimiento"),
+                    resultadosConsulta.getString("numTelefono"),
+                    resultadosConsulta.getString("correoElectronico"),
+                    resultadosConsulta.getString("contrasena"),    
+                    resultadosConsulta.getFloat("saldo")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return usuario;
 
     }
 
@@ -137,11 +182,5 @@ public class UsuarioDAO {
         }
         
     }
-
-    public List<Usuario> obtenerDatosUsuario(Integer idUsuario) {
-
-        return null;
-
-    }
-
+    
 }

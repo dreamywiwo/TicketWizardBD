@@ -27,6 +27,20 @@ public class BoletoDTO {
         this.idUsuario = idUsuario;
     }
 
+    public BoletoDTO(float precio, String disponibilidad, Integer numAsiento, String fila) {
+        this.precio = precio;
+        this.disponibilidad = disponibilidad;
+        this.numAsiento = numAsiento;
+        this.fila = fila;
+    }
+
+    public BoletoDTO(Integer numSerie, float precio, Integer numAsiento, String fila) {
+        this.numSerie = numSerie;
+        this.precio = precio;
+        this.numAsiento = numAsiento;
+        this.fila = fila;
+    }
+    
     public Integer getNumSerie() {
         return numSerie;
     }

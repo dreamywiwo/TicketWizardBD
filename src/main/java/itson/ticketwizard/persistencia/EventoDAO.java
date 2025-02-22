@@ -12,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -27,12 +26,50 @@ public class EventoDAO {
         this.manejadorConexiones = manejadorConexiones;
     }
     
-    public Evento buscarEventoPorId(){
-         String comandoSQL = "SELECT * FROM Eventos WHERE idEvento = ?";
+    public Evento buscarEventoPorId(Integer idEvento){
+         String codigoSQL = """
+                             SELECT 
+                                idEvento,
+                                nombreEvento,
+                                nombreLocal,
+                                calle,
+                                colonia,
+                                ciudad,
+                                descripcion,
+                                fechaEvento,
+                                horaEvento
+                             FROM Eventos WHERE idEvento = ?;
+                             """;
          
-         
-        return null;
-        
+        Evento evento = null;
+
+        try {
+            Connection conexion = manejadorConexiones.crearConexion();
+   
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            
+            comando.setInt(1, idEvento);
+
+            ResultSet resultadosConsulta = comando.executeQuery();
+            if (resultadosConsulta.next()) {
+                evento = new Evento(
+                    resultadosConsulta.getInt("idEvento"),
+                    resultadosConsulta.getString("nombreEvento"),
+                    resultadosConsulta.getString("nombreLocal"),
+                    resultadosConsulta.getString("calle"),
+                    resultadosConsulta.getString("colonia"),
+                    resultadosConsulta.getString("ciudad"),
+                    resultadosConsulta.getString("descripcion"),
+                    resultadosConsulta.getDate("fechaEvento"),    
+                    resultadosConsulta.getTime("horaEvento")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return evento;
+    
     }
     
     public List<EventoDTO> buscarEventosPorFiltro(String ciudad, String nombreLocal, Date fechaEvento) {

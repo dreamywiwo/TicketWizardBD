@@ -34,6 +34,22 @@ public class UsuarioDTO {
         this.saldo = saldo;
     }
 
+    //Constructor filtrado
+    public UsuarioDTO(String correoElectronico, String contrasena) {
+        this.correoElectronico = correoElectronico;
+        this.contrasena = contrasena;
+    }
+
+    public UsuarioDTO(String nombres, String apellidoPaterno, String apellidoMaterno, Date fechaNacimiento, String numTelefono, String correoElectronico, float saldo) {
+        this.nombres = nombres;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.fechaNacimiento = fechaNacimiento;
+        this.numTelefono = numTelefono;
+        this.correoElectronico = correoElectronico;
+        this.saldo = saldo;
+    }
+    
     public Integer getIdUsuario() {
         return idUsuario;
     }

@@ -15,9 +15,9 @@ import java.sql.SQLException;
 public class ManejadorConexiones {
     
     // informacion para conectar a la bd
-    private final String cadenaConexion = "jdbc:mysql://localhost/spotify_249718";
+    private final String cadenaConexion = "jdbc:mysql://localhost/ticketWizard";
     private final String usuario = "root";
-    private final String contrasenia = "itson";
+    private final String contrasenia = "Danoninocongelado1!";
     
     public Connection crearConexion() throws SQLException {
         Connection conexion = DriverManager.getConnection(

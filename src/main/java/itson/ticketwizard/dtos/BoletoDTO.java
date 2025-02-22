@@ -16,6 +16,17 @@ public class BoletoDTO {
     private Integer idEvento;
     private Integer idUsuario;
 
+    public BoletoDTO(Integer numSerie, float precio, Integer numControl, String disponibilidad, Integer numAsiento, String fila, Integer idEvento, Integer idUsuario) {
+        this.numSerie = numSerie;
+        this.precio = precio;
+        this.numControl = numControl;
+        this.disponibilidad = disponibilidad;
+        this.numAsiento = numAsiento;
+        this.fila = fila;
+        this.idEvento = idEvento;
+        this.idUsuario = idUsuario;
+    }
+
     public Integer getNumSerie() {
         return numSerie;
     }

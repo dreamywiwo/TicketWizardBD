@@ -15,6 +15,11 @@ import java.sql.SQLException;
  */
 public class ApartadoDAO {
     private ManejadorConexiones manejadorConexiones;
+
+    public ApartadoDAO(ManejadorConexiones manejadorConexiones) {
+        this.manejadorConexiones = manejadorConexiones;
+        
+    }
     
     public boolean registrarApartado(Integer numSerie, Integer idUsuario){
         String codigoSQL = """

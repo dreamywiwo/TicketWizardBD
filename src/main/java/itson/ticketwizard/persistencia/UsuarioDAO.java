@@ -24,11 +24,6 @@ public class UsuarioDAO {
     public UsuarioDAO() {
         this.manejadorConexiones = new ManejadorConexiones();
     }
-
-
-   
-
-
     
     public Usuario obtenerUsuarioPorCorreo(String correoElectronico) {
 

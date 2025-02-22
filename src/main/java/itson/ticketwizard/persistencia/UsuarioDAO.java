@@ -183,4 +183,37 @@ public class UsuarioDAO {
         
     }
     
+    public boolean recargarSaldo(Integer idUsuario, float sumaSaldo) {
+    
+        
+        String codigoSQLSelect = """
+                              SELECT saldo 
+                              FROM usuarios 
+                              WHERE idUsuario = ?
+                              """;
+    try {
+        Connection conexion = this.manejadorConexiones.crearConexion();
+        PreparedStatement comandoSelect = conexion.prepareStatement(codigoSQLSelect);
+
+        comandoSelect.setInt(1, idUsuario);
+        ResultSet resultadoConsulta = comandoSelect.executeQuery();
+        
+        if (resultadoConsulta.next()) {
+            float saldoActual = resultadoConsulta.getFloat("saldo");
+            float nuevoSaldo = saldoActual + sumaSaldo;
+
+            actualizarSaldo(idUsuario, nuevoSaldo);
+            
+            System.out.println("Saldo recargado con éxito.");
+            return true;
+        } else {
+            System.out.println("Usuario no encontrado.");
+            return false;
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+    
 }

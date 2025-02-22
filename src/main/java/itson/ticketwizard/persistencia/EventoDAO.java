@@ -33,26 +33,66 @@ public class EventoDAO {
         
     }
     
-    public List<Evento> buscarEventosPorFiltro(String ciudad, String nombreLocal, Date fecha) {
+    public List<EventoDTO> buscarEventosPorFiltro(String ciudad, String nombreLocal, Date fechaEvento) {
         
-        return null;
+        List<EventoDTO> listaEventos = new ArrayList<>();
+        String codigoSQL = """
+                           SELECT 
+                                nombreEvento, 
+                                nombreLocal,
+                                ciudad,
+                                fechaEvento, 
+                                horaEvento
+                           FROM Eventos 
+                           WHERE nombreEvento = ? AND ciudad = ? AND fechaEvento = ? ;
+                           """;
+        try{
+            Connection conexion = manejadorConexiones.crearConexion();
+   
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando.setString(1, ciudad);
+            comando.setString(2, nombreLocal);
+            comando.setDate(3, fechaEvento);
+            
+ 
+            ResultSet resultadosConsulta = comando.executeQuery();
+
+            while(resultadosConsulta.next()){
+
+                EventoDTO evento = new EventoDTO(
+
+                        resultadosConsulta.getString("nombreEvento"),
+                        resultadosConsulta.getString("nombreLocal"),
+                        resultadosConsulta.getString("ciudad"),
+                        resultadosConsulta.getDate("fechaEvento"),
+                        resultadosConsulta.getTime("horaEvento")   
+
+                );
+                listaEventos.add(evento);
+
+            }
+         
+        } catch (SQLException ex){
+            System.err.println(ex.getMessage());
+        }
         
+        return listaEventos;
     }
+        
+   
     
     public List<Evento> obtenerTodosLosEventos() {
         
-        List<Evento> listaEventos = new ArrayList<>();
+        List<EventoDTO> listaEventos = new ArrayList<>();
         String codigoSQL = """
                             SELECT 
-                           	idEvento, 
-                           	nombreEvento, 
-                           	nombreLocal, 
-                           	calle, 
-                           	colonia, 
-                           	fechaEvento, 
-                           	horaEvento
+                                nombreEvento, 
+                                nombreLocal,
+                                ciudad,
+                                fechaEvento, 
+                                horaEvento
                             FROM 
-                           	Eventos e;
+                           	Eventos;
                            """;
         
         try {
@@ -62,13 +102,11 @@ public class EventoDAO {
             
             while(resultadosConsulta.next()){
                 
-                Evento evento = new EventoDTO(
+                EventoDTO evento = new EventoDTO(
                         
-                        resultadosConsulta.getInt("idEvento"),
                         resultadosConsulta.getString("nombreEvento"),
                         resultadosConsulta.getString("nombreLocal"),
-                        resultadosConsulta.getString("calle"),
-                        resultadosConsulta.getString("colonia"),
+                        resultadosConsulta.getString("ciudad"),
                         resultadosConsulta.getDate("fechaEvento"),
                         resultadosConsulta.getTime("horaEvento")   
                         

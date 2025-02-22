@@ -5,6 +5,7 @@
 package itson.ticketwizard.dtos;
 
 import java.sql.Date;
+import java.sql.Time;
 
 /**
  *
@@ -16,13 +17,38 @@ public class EventoDTO {
     private String nombreEvento;
     private String nombreLocal;
     private String descripcion;
-    private Date fechaHora;
+    private Date fechaEvento;
+    private Time horaEvento;
     private String ciudad;
     private String calle;
     private String colonia;
-    private String codigoPostal;
+ 
+    public EventoDTO(Integer idEvento, String nombreEvento, String nombreLocal, String descripcion, Date fechaEvento, Time horaEvento, String ciudad, String calle, String colonia) {
+        this.idEvento = idEvento;
+        this.nombreEvento = nombreEvento;
+        this.nombreLocal = nombreLocal;
+        this.descripcion = descripcion;
+        this.fechaEvento = fechaEvento;
+        this.horaEvento = horaEvento;
+        this.ciudad = ciudad;
+        this.calle = calle;
+        this.colonia = colonia;
+        this.ciudad = ciudad;
+    }   
     
+    // Constructor filtrado para consultas
+    public EventoDTO(String nombreEvento, String nombreLocal, String ciudad, Date fechaEvento, Time horaEvento) {
+        this.nombreEvento = nombreEvento;
+        this.nombreLocal = nombreLocal;
+        this.fechaEvento = fechaEvento;
+        this.horaEvento = horaEvento;
+    }
     
+    public EventoDTO (String ciudad, String nombreLocal, Date fechaEvento){
+        this.ciudad = ciudad;
+        this.nombreLocal = nombreLocal;
+        this.fechaEvento = fechaEvento;
+    }
 
     public Integer getIdEvento() {
         return idEvento;
@@ -56,14 +82,22 @@ public class EventoDTO {
         this.descripcion = descripcion;
     }
 
-    public Date getFechaHora() {
-        return fechaHora;
+    public Date getFechaEvento() {
+        return fechaEvento;
     }
 
-    public void setFechaHora(Date fechaHora) {
-        this.fechaHora = fechaHora;
+    public void setFechaEvento(Date fechaEvento) {
+        this.fechaEvento = fechaEvento;
     }
 
+    public Time getHoraEvento() {
+        return horaEvento;
+    }
+
+    public void setHoraEvento(Time horaEvento) {
+        this.horaEvento = horaEvento;
+    }
+    
     public String getCiudad() {
         return ciudad;
     }
@@ -88,12 +122,12 @@ public class EventoDTO {
         this.colonia = colonia;
     }
 
-    public String getCodigoPostal() {
-        return codigoPostal;
+    public String getciudad() {
+        return ciudad;
     }
 
-    public void setCodigoPostal(String codigoPostal) {
-        this.codigoPostal = codigoPostal;
+    public void setciudad(String ciudad) {
+        this.ciudad = ciudad;
     }
     
     

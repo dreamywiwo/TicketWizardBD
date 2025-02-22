@@ -19,6 +19,15 @@ public class TransaccionDTO {
     private Integer idVendedor;
     private Integer idComprador;
 
+    public TransaccionDTO(Integer idTransaccion, Date fechaHora, float monto, float comision, Integer idVendedor, Integer idComprador) {
+        this.idTransaccion = idTransaccion;
+        this.fechaHora = fechaHora;
+        this.monto = monto;
+        this.comision = comision;
+        this.idVendedor = idVendedor;
+        this.idComprador = idComprador;
+    }
+
     public Integer getIdTransaccion() {
         return idTransaccion;
     }

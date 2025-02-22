@@ -14,6 +14,12 @@ public class HistorialDTO {
     private Integer idTransaccion;
     private Integer numSerie;
 
+    public HistorialDTO(Integer idRegistro, Integer idTransaccion, Integer numSerie) {
+        this.idRegistro = idRegistro;
+        this.idTransaccion = idTransaccion;
+        this.numSerie = numSerie;
+    }
+
     public Integer getIdRegistro() {
         return idRegistro;
     }

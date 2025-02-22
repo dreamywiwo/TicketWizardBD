@@ -22,6 +22,18 @@ public class UsuarioDTO {
     private String contrasena;
     private float saldo;
 
+    public UsuarioDTO(Integer idUsuario, String nombres, String apellidoPaterno, String apellidoMaterno, Date fechaNacimiento, String numTelefono, String correoElectronico, String contrasena, float saldo) {
+        this.idUsuario = idUsuario;
+        this.nombres = nombres;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.fechaNacimiento = fechaNacimiento;
+        this.numTelefono = numTelefono;
+        this.correoElectronico = correoElectronico;
+        this.contrasena = contrasena;
+        this.saldo = saldo;
+    }
+
     public Integer getIdUsuario() {
         return idUsuario;
     }

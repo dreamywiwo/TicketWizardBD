@@ -19,7 +19,7 @@ public class Evento {
     private String nombreLocal;
     private String calle;
     private String colonia;
-    private String codigoPostal;
+    private String ciudad;
     private String descripcion;
     private Date fechaEvento;
     private Time horaEvento;
@@ -27,24 +27,24 @@ public class Evento {
     public Evento() {
     }
 
-    public Evento(String nombreEvento, String nombreLocal, String calle, String colonia, String codigoPostal, String descripcion, Date fechaEvento, Time horaEvento) {
+    public Evento(String nombreEvento, String nombreLocal, String calle, String colonia, String ciudad, String descripcion, Date fechaEvento, Time horaEvento) {
         this.nombreEvento = nombreEvento;
         this.nombreLocal = nombreLocal;
         this.calle = calle;
         this.colonia = colonia;
-        this.codigoPostal = codigoPostal;
+        this.ciudad = ciudad;
         this.descripcion = descripcion;
         this.fechaEvento = fechaEvento;
         this.horaEvento = horaEvento;
     }
 
-    public Evento(Integer idEvento, String nombreEvento, String nombreLocal, String calle, String colonia, String codigoPostal, String descripcion, Date fechaEvento, Time horaEvento) {
+    public Evento(Integer idEvento, String nombreEvento, String nombreLocal, String calle, String colonia, String ciudad, String descripcion, Date fechaEvento, Time horaEvento) {
         this.idEvento = idEvento;
         this.nombreEvento = nombreEvento;
         this.nombreLocal = nombreLocal;
         this.calle = calle;
         this.colonia = colonia;
-        this.codigoPostal = codigoPostal;
+        this.ciudad = ciudad;
         this.descripcion = descripcion;
         this.fechaEvento = fechaEvento;
         this.horaEvento = horaEvento;
@@ -90,12 +90,12 @@ public class Evento {
         this.colonia = colonia;
     }
 
-    public String getCodigoPostal() {
-        return codigoPostal;
+    public String getciudad() {
+        return ciudad;
     }
 
-    public void setCodigoPostal(String codigoPostal) {
-        this.codigoPostal = codigoPostal;
+    public void setciudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     public String getDescripcion() {

@@ -46,7 +46,7 @@ public class UsuarioDAO {
     public void actualizarSaldo(Integer idUsuario, float nuevoSaldo) {
 
         String codigoSQL = """
-                            UPDATE usuarios SET saldo = ? WHERE idUsuario = ? 
+                            UPDATE usuarios SET saldo = ? WHERE idUsuario = ?                        
                             ;
                            """;
 

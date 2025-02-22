@@ -15,6 +15,13 @@ public class HistorialDAO {
     
     public List<Historial> obtenerHistorialBoletos(Integer idUsuario){
         
+        String codigoSQL = """
+                           SELECT 
+                           	idRegistro,
+                           	idTransaccion,
+                           	numSerie
+                           FROM Historial WHERE numSerie = ?;
+                           """;
         return null;
         
     }

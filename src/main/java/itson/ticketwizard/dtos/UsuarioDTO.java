@@ -50,6 +50,8 @@ public class UsuarioDTO {
         this.saldo = saldo;
     }
     
+    
+    
     public Integer getIdUsuario() {
         return idUsuario;
     }

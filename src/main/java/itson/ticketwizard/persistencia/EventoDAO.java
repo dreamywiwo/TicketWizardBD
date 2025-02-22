@@ -4,6 +4,7 @@
  */
 package itson.ticketwizard.persistencia;
 
+import itson.ticketwizard.entidades.DireccionEvento;
 import itson.ticketwizard.entidades.Evento;
 import java.sql.Date;
 import java.util.List;
@@ -14,13 +15,13 @@ import java.util.List;
  */
 public class EventoDAO {
     
-    public Evento buscarEventoPorId(Integer idEvento){
+    public Evento buscarEventoPorId(Evento evento){
         
         return null;
         
     }
     
-    public List<Evento> buscarEventosPorFiltro(String ciudad, String nombre, Date fecha) {
+    public List<Evento> buscarEventosPorFiltro(String ciudad, String nombreLocal, Date fecha) {
         
         return null;
         

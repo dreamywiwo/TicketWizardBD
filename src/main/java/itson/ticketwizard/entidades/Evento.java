@@ -20,37 +20,28 @@ public class Evento {
     private String descripcion;
     private Date fechaEvento;
     private Time horaEvento;
-    private String ciudad;
-    private String calle;
-    private String colonia;
-    private String codigoPostal;
+    private DireccionEvento direccionEvento;
 
     public Evento() {
     }
 
-    public Evento(String nombreEvento, String nombreLocal, String descripcion, Date fechaEvento, Time horaEvento, String ciudad, String calle, String colonia, String codigoPostal) {
+    public Evento(String nombreEvento, String nombreLocal, String descripcion, Date fechaEvento, Time horaEvento, DireccionEvento direccionEvento) {
         this.nombreEvento = nombreEvento;
         this.nombreLocal = nombreLocal;
         this.descripcion = descripcion;
         this.fechaEvento = fechaEvento;
         this.horaEvento = horaEvento;
-        this.ciudad = ciudad;
-        this.calle = calle;
-        this.colonia = colonia;
-        this.codigoPostal = codigoPostal;
+        this.direccionEvento = direccionEvento;
     }
 
-    public Evento(Integer idEvento, String nombreEvento, String nombreLocal, String descripcion, Date fechaEvento, Time horaEvento, String ciudad, String calle, String colonia, String codigoPostal) {
+    public Evento(Integer idEvento, String nombreEvento, String nombreLocal, String descripcion, Date fechaEvento, Time horaEvento, DireccionEvento direccionEvento) {
         this.idEvento = idEvento;
         this.nombreEvento = nombreEvento;
         this.nombreLocal = nombreLocal;
         this.descripcion = descripcion;
         this.fechaEvento = fechaEvento;
         this.horaEvento = horaEvento;
-        this.ciudad = ciudad;
-        this.calle = calle;
-        this.colonia = colonia;
-        this.codigoPostal = codigoPostal;
+        this.direccionEvento = direccionEvento;
     }
 
     public Integer getIdEvento() {
@@ -85,50 +76,34 @@ public class Evento {
         this.descripcion = descripcion;
     }
 
-    public Date getfechaEvento() {
+    public Date getFechaEvento() {
         return fechaEvento;
     }
 
-    public void setfechaEvento(Date fechaEvento) {
+    public void setFechaEvento(Date fechaEvento) {
         this.fechaEvento = fechaEvento;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    public Time getHoraEvento() {
+        return horaEvento;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setHoraEvento(Time horaEvento) {
+        this.horaEvento = horaEvento;
     }
 
-    public String getCalle() {
-        return calle;
+    public DireccionEvento getDireccionEvento() {
+        return direccionEvento;
     }
 
-    public void setCalle(String calle) {
-        this.calle = calle;
-    }
-
-    public String getColonia() {
-        return colonia;
-    }
-
-    public void setColonia(String colonia) {
-        this.colonia = colonia;
-    }
-
-    public String getCodigoPostal() {
-        return codigoPostal;
-    }
-
-    public void setCodigoPostal(String codigoPostal) {
-        this.codigoPostal = codigoPostal;
+    public void setDireccionEvento(DireccionEvento direccionEvento) {
+        this.direccionEvento = direccionEvento;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.idEvento);
+        int hash = 7;
+        hash = 43 * hash + Objects.hashCode(this.idEvento);
         return hash;
     }
 
@@ -154,12 +129,8 @@ public class Evento {
                 ", nombreLocal=" + nombreLocal + 
                 ", descripcion=" + descripcion + 
                 ", fechaEvento=" + fechaEvento + 
-                ", ciudad=" + ciudad + 
-                ", calle=" + calle + 
-                ", colonia=" + colonia + 
-                ", codigoPostal=" + codigoPostal + '}';
-    }
-    
-    
+                ", horaEvento=" + horaEvento + 
+                ", direccionEvento=" + direccionEvento + '}';
+    }   
     
 }

@@ -16,6 +16,12 @@ public class ApartadoDTO {
     private Date fechaHora;
     private Integer idTransaccion;
 
+    public ApartadoDTO(Integer idApartado, Date fechaHora, Integer idTransaccion) {
+        this.idApartado = idApartado;
+        this.fechaHora = fechaHora;
+        this.idTransaccion = idTransaccion;
+    }
+    
     public Integer getIdApartado() {
         return idApartado;
     }

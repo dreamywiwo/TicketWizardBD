@@ -17,31 +17,37 @@ public class Evento {
     private Integer idEvento;
     private String nombreEvento;
     private String nombreLocal;
+    private String calle;
+    private String colonia;
+    private String codigoPostal;
     private String descripcion;
     private Date fechaEvento;
     private Time horaEvento;
-    private DireccionEvento direccionEvento;
 
     public Evento() {
     }
 
-    public Evento(String nombreEvento, String nombreLocal, String descripcion, Date fechaEvento, Time horaEvento, DireccionEvento direccionEvento) {
+    public Evento(String nombreEvento, String nombreLocal, String calle, String colonia, String codigoPostal, String descripcion, Date fechaEvento, Time horaEvento) {
         this.nombreEvento = nombreEvento;
         this.nombreLocal = nombreLocal;
+        this.calle = calle;
+        this.colonia = colonia;
+        this.codigoPostal = codigoPostal;
         this.descripcion = descripcion;
         this.fechaEvento = fechaEvento;
         this.horaEvento = horaEvento;
-        this.direccionEvento = direccionEvento;
     }
 
-    public Evento(Integer idEvento, String nombreEvento, String nombreLocal, String descripcion, Date fechaEvento, Time horaEvento, DireccionEvento direccionEvento) {
+    public Evento(Integer idEvento, String nombreEvento, String nombreLocal, String calle, String colonia, String codigoPostal, String descripcion, Date fechaEvento, Time horaEvento) {
         this.idEvento = idEvento;
         this.nombreEvento = nombreEvento;
         this.nombreLocal = nombreLocal;
+        this.calle = calle;
+        this.colonia = colonia;
+        this.codigoPostal = codigoPostal;
         this.descripcion = descripcion;
         this.fechaEvento = fechaEvento;
         this.horaEvento = horaEvento;
-        this.direccionEvento = direccionEvento;
     }
 
     public Integer getIdEvento() {
@@ -68,6 +74,30 @@ public class Evento {
         this.nombreLocal = nombreLocal;
     }
 
+    public String getCalle() {
+        return calle;
+    }
+
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+
+    public String getColonia() {
+        return colonia;
+    }
+
+    public void setColonia(String colonia) {
+        this.colonia = colonia;
+    }
+
+    public String getCodigoPostal() {
+        return codigoPostal;
+    }
+
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -90,14 +120,6 @@ public class Evento {
 
     public void setHoraEvento(Time horaEvento) {
         this.horaEvento = horaEvento;
-    }
-
-    public DireccionEvento getDireccionEvento() {
-        return direccionEvento;
-    }
-
-    public void setDireccionEvento(DireccionEvento direccionEvento) {
-        this.direccionEvento = direccionEvento;
     }
 
     @Override
@@ -129,8 +151,7 @@ public class Evento {
                 ", nombreLocal=" + nombreLocal + 
                 ", descripcion=" + descripcion + 
                 ", fechaEvento=" + fechaEvento + 
-                ", horaEvento=" + horaEvento + 
-                ", direccionEvento=" + direccionEvento + '}';
+                ", horaEvento=" + horaEvento + '}';
     }   
     
 }

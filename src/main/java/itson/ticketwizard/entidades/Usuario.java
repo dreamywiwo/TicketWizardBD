@@ -22,8 +22,150 @@ public class Usuario {
     private String correoElectronico;
     private String contrasena;
     private float saldo;
+    private DireccionUsuario direccionUsuario;
 
-   
-    
+    public Usuario() {
+    }
+
+    public Usuario(String nombres, String apellidoPaterno, String apellidoMaterno, Date fechaNacimiento, String numTelefono, String correoElectronico, String contrasena, float saldo, DireccionUsuario direccionUsuario) {
+        this.nombres = nombres;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.fechaNacimiento = fechaNacimiento;
+        this.numTelefono = numTelefono;
+        this.correoElectronico = correoElectronico;
+        this.contrasena = contrasena;
+        this.saldo = saldo;
+        this.direccionUsuario = direccionUsuario;
+    }
+
+    public Usuario(Integer idUsuario, String nombres, String apellidoPaterno, String apellidoMaterno, Date fechaNacimiento, String numTelefono, String correoElectronico, String contrasena, float saldo, DireccionUsuario direccionUsuario) {
+        this.idUsuario = idUsuario;
+        this.nombres = nombres;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.fechaNacimiento = fechaNacimiento;
+        this.numTelefono = numTelefono;
+        this.correoElectronico = correoElectronico;
+        this.contrasena = contrasena;
+        this.saldo = saldo;
+        this.direccionUsuario = direccionUsuario;
+    }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
+    }
+
+    public void setApellidoPaterno(String apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
+    }
+
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getNumTelefono() {
+        return numTelefono;
+    }
+
+    public void setNumTelefono(String numTelefono) {
+        this.numTelefono = numTelefono;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public float getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
+
+    public DireccionUsuario getDireccionUsuario() {
+        return direccionUsuario;
+    }
+
+    public void setDireccionUsuario(DireccionUsuario direccionUsuario) {
+        this.direccionUsuario = direccionUsuario;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.idUsuario);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        return Objects.equals(this.idUsuario, other.idUsuario);
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "idUsuario=" + idUsuario + 
+                ", nombres=" + nombres + 
+                ", apellidoPaterno=" + apellidoPaterno + 
+                ", apellidoMaterno=" + apellidoMaterno + 
+                ", fechaNacimiento=" + fechaNacimiento + 
+                ", numTelefono=" + numTelefono + 
+                ", correoElectronico=" + correoElectronico + 
+                ", contrasena=" + contrasena + 
+                ", saldo=" + saldo + 
+                ", direccionUsuario=" + direccionUsuario + '}';
+    }   
     
 }

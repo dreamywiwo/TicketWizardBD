@@ -21,6 +21,8 @@ public class EventoDTO {
     private String calle;
     private String colonia;
     private String codigoPostal;
+    
+    
 
     public Integer getIdEvento() {
         return idEvento;

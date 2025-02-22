@@ -57,8 +57,6 @@ public class UsuarioDAO {
             comando.setFloat(1, nuevoSaldo);
             comando.setInt(2, idUsuario);
 
-            ResultSet resultadosConsulta = comando.executeQuery();
-
             int rowsAffected = comando.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("Saldo actualizado correctamente.");

@@ -4,6 +4,7 @@
  */
 package itson.ticketwizard.persistencia;
 
+import itson.ticketwizard.entidades.Apartado;
 import itson.ticketwizard.entidades.Historial;
 import itson.ticketwizard.entidades.Transaccion;
 import java.util.List;
@@ -23,6 +24,11 @@ public class ApartadoDAO {
     public boolean eliminarApartado(int idApartado) {
         
         return false;
+        
+    }
+    public List<Apartado> consultarApartados(Integer idRegistro){
+        
+        return null;
         
     }
 }

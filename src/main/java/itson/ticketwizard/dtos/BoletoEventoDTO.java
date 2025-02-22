@@ -16,6 +16,7 @@ public class BoletoEventoDTO {
     private int numSerie;
     private float precio;
     private String disponibilidad;
+    private String tipo;
     private int numAsiento;
     private String fila;
     private int idEvento;
@@ -25,13 +26,27 @@ public class BoletoEventoDTO {
     private String ciudad;
     private String nombreLocal;
 
-    public BoletoEventoDTO(int numSerie, float precio, String disponibilidad, int numAsiento, String fila, int idEvento, String nombreEvento, Date fechaEvento, Time horaEvento, String ciudad, String nombreLocal) {
+    public BoletoEventoDTO(int numSerie, float precio, String disponibilidad, String tipo, int numAsiento, String fila, int idEvento, String nombreEvento, Date fechaEvento, Time horaEvento, String ciudad, String nombreLocal) {
         this.numSerie = numSerie;
         this.precio = precio;
         this.disponibilidad = disponibilidad;
+        this.tipo = tipo;
         this.numAsiento = numAsiento;
         this.fila = fila;
         this.idEvento = idEvento;
+        this.nombreEvento = nombreEvento;
+        this.fechaEvento = fechaEvento;
+        this.horaEvento = horaEvento;
+        this.ciudad = ciudad;
+        this.nombreLocal = nombreLocal;
+    }
+
+    public BoletoEventoDTO(float precio, String disponibilidad, String tipo, int numAsiento, String fila, String nombreEvento, Date fechaEvento, Time horaEvento, String ciudad, String nombreLocal) {
+        this.precio = precio;
+        this.disponibilidad = disponibilidad;
+        this.tipo= tipo;
+        this.numAsiento = numAsiento;
+        this.fila = fila;
         this.nombreEvento = nombreEvento;
         this.fechaEvento = fechaEvento;
         this.horaEvento = horaEvento;

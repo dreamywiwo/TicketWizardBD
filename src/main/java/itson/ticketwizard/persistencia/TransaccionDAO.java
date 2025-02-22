@@ -26,8 +26,8 @@ public class TransaccionDAO {
         this.manejadorConexiones = manejadorConexiones;
     }
     
-    // cambiar a parametro idUsuario y ajustar la consulta
-    public List<TransaccionDTO> obtenerTransaccionesPorUsuario(Integer idVendedor, Integer idComprador){
+    // Lista de transacciones
+    public List<TransaccionDTO> obtenerTransaccionesPorUsuario(Integer idUsuario){
         
          List<TransaccionDTO> listaTransacciones = new ArrayList<>();
         String codigoSQL = """
@@ -44,8 +44,8 @@ public class TransaccionDAO {
             Connection conexion = manejadorConexiones.crearConexion();
    
             PreparedStatement comando = conexion.prepareStatement(codigoSQL);
-            comando.setInt(1, idVendedor);
-            comando.setInt(2, idComprador);
+            comando.setInt(1, idUsuario);
+            comando.setInt(2, idUsuario);
             
             ResultSet resultadosConsulta = comando.executeQuery();
 
@@ -58,7 +58,7 @@ public class TransaccionDAO {
                         resultadosConsulta.getFloat("monto"),
                         resultadosConsulta.getFloat("comision"),
                         resultadosConsulta.getInt("idVendedor"),
-                        resultadosConsulta.getInt("idVendedor")
+                        resultadosConsulta.getInt("idComprador")
 
                 );
                 listaTransacciones.add(transaccion);

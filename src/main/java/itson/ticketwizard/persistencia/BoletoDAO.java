@@ -5,6 +5,8 @@
 package itson.ticketwizard.persistencia;
 
 import itson.ticketwizard.dtos.BoletoDTO;
+import itson.ticketwizard.dtos.BoletoEventoDTO;
+import itson.ticketwizard.dtos.BoletoEventoTransaccionDTO;
 import itson.ticketwizard.entidades.Boleto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,22 +27,24 @@ public class BoletoDAO {
         this.manejadorConexiones = new ManejadorConexiones();
     }
     
-    
-    // Falta agregar nombre local y ciudad a los boletos
-    
-    public List<BoletoDTO> obtenerBoletosDisponiblesPorEvento(Integer idEvento){
+    public List<BoletoEventoDTO> obtenerBoletosDisponiblesPorEvento(Integer idEvento){
         
-        List<BoletoDTO> listaBoletos = new ArrayList<>();
+        List<BoletoEventoDTO> listaBoletos = new ArrayList<>();
         String codigoSQL = """
-                           SELECT 
-                           	precio,
-                           	disponibilidad,
-                                tipo,
-                           	numAsiento,
-                           	fila,
-                           	idEvento,
-                           	idUsuario
-                               FROM Boletos WHERE idEvento = ? AND Disponibilidad = 'Disponible';
+                           SELECT                                
+                           	b.precio,
+                           	b.disponibilidad,
+                                b.tipo
+                           	b.numAsiento,
+                           	b.fila,
+                           	e.nombreEvento,
+                           	e.fechaEvento,
+                           	e.horaEvento,
+                           	e.ciudad,
+                           	e.nombreLocal
+                           FROM Boletos b
+                           JOIN Eventos e ON b.idEvento = e.idEvento
+                           WHERE e.idEvento = ? AND Disponibilidad = 'Disponible';
                            """;
         try{
             Connection conexion = manejadorConexiones.crearConexion();
@@ -52,14 +56,18 @@ public class BoletoDAO {
 
             while(resultadosConsulta.next()){
 
-                BoletoDTO boleto = new BoletoDTO(
+                BoletoEventoDTO boleto = new BoletoEventoDTO(
                         
                         resultadosConsulta.getFloat("precio"),
                         resultadosConsulta.getString("disponibilidad"),
                         resultadosConsulta.getString("tipo"),
                         resultadosConsulta.getInt("numAsiento"),
-                        resultadosConsulta.getString("fila")
-
+                        resultadosConsulta.getString("fila"),
+                        resultadosConsulta.getString("nombreEvento"),
+                        resultadosConsulta.getDate("fechaEvento"),
+                        resultadosConsulta.getTime("horaEvento"),
+                        resultadosConsulta.getString("ciudad"),
+                        resultadosConsulta.getString("nombreLocal")
                 );
                 listaBoletos.add(boleto);
 
@@ -73,18 +81,29 @@ public class BoletoDAO {
         
     }
     
-    public List<BoletoDTO> obtenerBoletosDeUsuario(Integer idUsuario){
+    public List<BoletoEventoTransaccionDTO> obtenerBoletosDeUsuario(Integer idUsuario){
         
-        List<BoletoDTO> listaBoletos = new ArrayList<>();
+        List<BoletoEventoTransaccionDTO> listaBoletos = new ArrayList<>();
         String codigoSQL = """
                            SELECT 
-                                numSerie,
-                           	precio,
-                                tipo,
-                           	numAsiento,
-                           	fila,
-                           	idEvento,
-                               FROM Boletos WHERE idUsuario = ?;
+                           	b.numSerie,
+                                b.tipo,
+                                b.numAsiento,
+                                b.fila,
+                                e.nombreEvento,
+                                e.nombreLocal,
+                                e.descripcion,
+                                e.fechaEvento,
+                           	e.horaEvento,
+                           	e.ciudad,
+                           	t.idTransaccion,
+                                t.fechaHora
+                           FROM Eventos e
+                           JOIN Boletos b ON e.idEvento = b.idEvento
+                           JOIN Historial h ON b.numSerie = h.numSerie
+                           JOIN Transacciones t ON h.idTransaccion = t.idTransaccion
+                           JOIN Usuarios u ON t.idComprador = u.idUsuario
+                           WHERE idUsuario = ?;
                            """;
         try{
             Connection conexion = manejadorConexiones.crearConexion();
@@ -96,14 +115,82 @@ public class BoletoDAO {
 
             while(resultadosConsulta.next()){
 
-                BoletoDTO boleto = new BoletoDTO(
+                BoletoEventoTransaccionDTO boleto = new BoletoEventoTransaccionDTO(
                         
                         resultadosConsulta.getInt("numSerie"),                     
-                        resultadosConsulta.getFloat("precio"),
                         resultadosConsulta.getString("tipo"),
                         resultadosConsulta.getInt("numAsiento"),
-                        resultadosConsulta.getString("fila")
+                        resultadosConsulta.getString("fila"),
+                        resultadosConsulta.getString("nombreEvento"),
+                        resultadosConsulta.getString("nombreLocal"),
+                        resultadosConsulta.getString("descripcion"),
+                        resultadosConsulta.getDate("fechaEvento"),
+                        resultadosConsulta.getTime("horaEvento"),
+                        resultadosConsulta.getString("ciudad"),
+                        resultadosConsulta.getInt("idTransaccion"),
+                        resultadosConsulta.getDate("fechaHora")
+                );
+                listaBoletos.add(boleto);
 
+            }
+         
+        } catch (SQLException ex){
+            System.err.println(ex.getMessage());
+        }
+        
+        return listaBoletos;
+        
+    }
+    
+    public List<BoletoEventoTransaccionDTO> obtenerBoletosDeUsuarioPorEvento(Integer idUsuario, Integer idEvento){
+        
+        List<BoletoEventoTransaccionDTO> listaBoletos = new ArrayList<>();
+        String codigoSQL = """
+                           SELECT 
+                           	b.numSerie,
+                                b.tipo,
+                                b.numAsiento,
+                                b.fila,
+                                e.nombreEvento,
+                                e.nombreLocal,
+                                e.descripcion,
+                                e.fechaEvento,
+                           	e.horaEvento,
+                           	e.ciudad,
+                           	t.idTransaccion,
+                                t.fechaHora
+                           FROM Eventos e
+                           JOIN Boletos b ON e.idEvento = b.idEvento
+                           JOIN Historial h ON b.numSerie = h.numSerie
+                           JOIN Transacciones t ON h.idTransaccion = t.idTransaccion
+                           JOIN Usuarios u ON t.idComprador = u.idUsuario
+                           WHERE idUsuario = ? AND idEvento = ?;
+                           """;
+        try{
+            Connection conexion = manejadorConexiones.crearConexion();
+   
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando.setInt(1, idUsuario);
+            comando.setInt(2, idEvento);
+            
+            ResultSet resultadosConsulta = comando.executeQuery();
+
+            while(resultadosConsulta.next()){
+
+                BoletoEventoTransaccionDTO boleto = new BoletoEventoTransaccionDTO(
+                        
+                        resultadosConsulta.getInt("numSerie"),                     
+                        resultadosConsulta.getString("tipo"),
+                        resultadosConsulta.getInt("numAsiento"),
+                        resultadosConsulta.getString("fila"),
+                        resultadosConsulta.getString("nombreEvento"),
+                        resultadosConsulta.getString("nombreLocal"),
+                        resultadosConsulta.getString("descripcion"),
+                        resultadosConsulta.getDate("fechaEvento"),
+                        resultadosConsulta.getTime("horaEvento"),
+                        resultadosConsulta.getString("ciudad"),
+                        resultadosConsulta.getInt("idTransaccion"),
+                        resultadosConsulta.getDate("fechaHora")
                 );
                 listaBoletos.add(boleto);
 
@@ -130,21 +217,21 @@ public class BoletoDAO {
     }
     
     public boolean comprarBoleto(Integer numSerie, Integer idComprador, float precio) {
-    String codigoSQLSelectComprador = """
-                                       SELECT saldo FROM usuarios WHERE idUsuario = ?
-                                       """;
-    String codigoSQLSelectBoleto = """
-                                    SELECT idUsuario FROM boletos WHERE numSerie = ?
-                                    """;
-    String codigoSQLUpdateSaldoComprador = """
-                                            UPDATE usuarios SET saldo = ? WHERE idUsuario = ?
-                                            """;
-    String codigoSQLUpdateSaldoVendedor = """
-                                           UPDATE usuarios SET saldo = saldo + ? WHERE idUsuario = ?
+        String codigoSQLSelectComprador = """
+                                           SELECT saldo FROM usuarios WHERE idUsuario = ?
                                            """;
-    String codigoSQLUpdateBoleto = """
-                                    UPDATE boletos SET idUsuario = ?, disponibilidad = 'Reservado' WHERE numSerie = ?
-                                    """;
+        String codigoSQLSelectBoleto = """
+                                        SELECT idUsuario FROM boletos WHERE numSerie = ?
+                                        """;
+        String codigoSQLUpdateSaldoComprador = """
+                                                UPDATE usuarios SET saldo = ? WHERE idUsuario = ?
+                                                """;
+        String codigoSQLUpdateSaldoVendedor = """
+                                               UPDATE usuarios SET saldo = saldo + ? WHERE idUsuario = ?
+                                               """;
+        String codigoSQLUpdateBoleto = """
+                                        UPDATE boletos SET idUsuario = ?, disponibilidad = 'Reservado' WHERE numSerie = ?
+                                        """;
 
     try {
         Connection conexion = this.manejadorConexiones.crearConexion();

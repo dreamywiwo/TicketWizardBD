@@ -27,5 +27,4 @@ public class ManejadorConexiones {
         return conexion;
             
     }
-    
 }

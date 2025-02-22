@@ -4,11 +4,13 @@
  */
 package itson.ticketwizard.persistencia;
 
+import itson.ticketwizard.dtos.BoletoDTO;
 import itson.ticketwizard.entidades.Boleto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,15 +25,91 @@ public class BoletoDAO {
         this.manejadorConexiones = new ManejadorConexiones();
     }
     
-    public List<Boleto> obtenerBoletosDisponiblesPorEvento(Integer idEvento){
+    
+    // Falta agregar nombre local y ciudad a los boletos
+    
+    public List<BoletoDTO> obtenerBoletosDisponiblesPorEvento(Integer idEvento){
         
-        return null;
+        List<BoletoDTO> listaBoletos = new ArrayList<>();
+        String codigoSQL = """
+                           SELECT 
+                           	precio,
+                           	disponibilidad,
+                           	numAsiento,
+                           	fila,
+                           	idEvento,
+                           	idUsuario
+                               FROM Boletos WHERE idEvento = ? AND (Disponibilidad = 'Disponible' OR 'Reventa');
+                           """;
+        try{
+            Connection conexion = manejadorConexiones.crearConexion();
+   
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando.setInt(1, idEvento);
+            
+            ResultSet resultadosConsulta = comando.executeQuery();
+
+            while(resultadosConsulta.next()){
+
+                BoletoDTO boleto = new BoletoDTO(
+                        
+                        resultadosConsulta.getFloat("precio"),
+                        resultadosConsulta.getString("disponibilidad"),
+                        resultadosConsulta.getInt("numAsiento"),
+                        resultadosConsulta.getString("fila")
+
+                );
+                listaBoletos.add(boleto);
+
+            }
+         
+        } catch (SQLException ex){
+            System.err.println(ex.getMessage());
+        }
+        
+        return listaBoletos;
         
     }
     
-    public List<Boleto> obtenerBoletosDeUsuario(Integer idUsuario){
+    public List<BoletoDTO> obtenerBoletosDeUsuario(Integer idUsuario){
         
-        return null;
+        List<BoletoDTO> listaBoletos = new ArrayList<>();
+        String codigoSQL = """
+                           SELECT 
+                                numSerie,
+                           	precio,
+                           	numAsiento,
+                           	fila,
+                           	idEvento,
+                               FROM Boletos WHERE idUsuario = ?;
+                           """;
+        try{
+            Connection conexion = manejadorConexiones.crearConexion();
+   
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando.setInt(1, idUsuario);
+            
+            ResultSet resultadosConsulta = comando.executeQuery();
+
+            while(resultadosConsulta.next()){
+
+                BoletoDTO boleto = new BoletoDTO(
+                        
+                        resultadosConsulta.getInt("numSerie"),
+                        resultadosConsulta.getFloat("precio"),
+                        resultadosConsulta.getInt("numAsiento"),
+                        resultadosConsulta.getString("fila")
+
+                );
+                listaBoletos.add(boleto);
+
+            }
+         
+        } catch (SQLException ex){
+            System.err.println(ex.getMessage());
+        }
+        
+        return listaBoletos;
         
     }
     

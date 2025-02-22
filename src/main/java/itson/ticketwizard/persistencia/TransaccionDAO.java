@@ -4,9 +4,14 @@
  */
 package itson.ticketwizard.persistencia;
 
-import itson.ticketwizard.entidades.Evento;
+import itson.ticketwizard.dtos.TransaccionDTO;
 import itson.ticketwizard.entidades.Transaccion;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,10 +20,54 @@ import java.util.List;
  */
 public class TransaccionDAO {
     
-    public List<Transaccion> obtenerTransaccionesPorUsuario(Integer idUsuario){
+    private ManejadorConexiones manejadorConexiones;
+    
+    public TransaccionDAO(ManejadorConexiones manejadorConexiones){
+        this.manejadorConexiones = manejadorConexiones;
+    }
+    
+    public List<TransaccionDTO> obtenerTransaccionesPorUsuario(Integer idVendedor, Integer idComprador){
         
-        return null;
-        
+         List<TransaccionDTO> listaTransacciones = new ArrayList<>();
+        String codigoSQL = """
+                           SELECT
+                           idTransaccion,
+                           fechaHora,
+                           monto,
+                           comision,
+                           idVendedor,
+                           idComprador
+                           FROM Transacciones WHERE idVendedor = ? OR idComprador= ?;
+                           """;
+        try{
+            Connection conexion = manejadorConexiones.crearConexion();
+   
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+            comando.setInt(1, idVendedor);
+            comando.setInt(2, idComprador);
+            
+            ResultSet resultadosConsulta = comando.executeQuery();
+
+            while(resultadosConsulta.next()){
+
+                TransaccionDTO transaccion = new TransaccionDTO(
+
+                        resultadosConsulta.getInt("idTransaccion"),
+                        resultadosConsulta.getDate("fechaHora"),
+                        resultadosConsulta.getFloat("monto"),
+                        resultadosConsulta.getFloat("comision"),
+                        resultadosConsulta.getInt("idVendedor"),
+                        resultadosConsulta.getInt("idVendedor")
+
+                );
+                listaTransacciones.add(transaccion);
+
+            }
+         
+        } catch (SQLException ex){
+            System.err.println(ex.getMessage());
+        }       
+        return listaTransacciones;       
     }
     
     public boolean registrarTransaccion(Integer idComprador, Integer idVendedor, float monto, Integer idApartado){

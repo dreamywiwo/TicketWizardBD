@@ -32,7 +32,8 @@ public class ApartadoDAO {
        
             comando.setInt(1, numSerie);
             comando.setInt(2, idUsuario);
-              
+            int filasAfectadas = comando.executeUpdate();
+            
         } catch (SQLException ex){
             System.err.println(ex.getMessage());
         }
@@ -51,12 +52,7 @@ public class ApartadoDAO {
             
             comando.setInt(1, idApartado);
             int filasAfectadas = comando.executeUpdate();
-            
-            if (filasAfectadas > 0) {
-                return true;
-        }
-            
-            
+              
         }catch(SQLException ex){
             System.err.println(ex.getMessage());
         }

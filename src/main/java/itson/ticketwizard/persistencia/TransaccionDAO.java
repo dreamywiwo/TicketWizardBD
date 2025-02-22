@@ -72,6 +72,23 @@ public class TransaccionDAO {
     }
     
     public boolean registrarTransaccion(Integer idComprador, Integer idVendedor, float monto, Integer idApartado){
+        String codigoSQL = """
+                            INSERT INTO(idComprador, idVendedor, monto, idApartado)
+                            VALUES(?,?,?,?);
+                            """;
+                            
+           try{
+            Connection conexion = manejadorConexiones.crearConexion();
+            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+       
+            comando.setInt(1, idComprador);
+            comando.setInt(2, idVendedor);
+            comando.setFloat(3, monto);
+            comando.setInt(4, idApartado);
+            
+           }catch(SQLException ex){
+               System.err.println(ex.getMessage());
+           }
         
         return false;
         

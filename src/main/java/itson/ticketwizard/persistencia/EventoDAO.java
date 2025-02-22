@@ -28,7 +28,9 @@ public class EventoDAO {
     }
     
     public Evento buscarEventoPorId(){
-        
+         String comandoSQL = "SELECT * FROM Eventos WHERE idEvento = ?";
+         
+         
         return null;
         
     }

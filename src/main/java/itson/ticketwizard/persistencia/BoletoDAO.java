@@ -198,10 +198,14 @@ public class BoletoDAO {
     
     public boolean venderBoleto(Integer numSerie, Integer idVendedor) {
     String codigoSQLSelect = """
-                              SELECT idUsuario, disponibilidad FROM boletos WHERE numSerie = ?
+                              SELECT idUsuario, disponibilidad 
+                              FROM boletos 
+                              WHERE numSerie = ?
                               """;
     String codigoSQLUpdate = """
-                              UPDATE boletos SET disponibilidad = 'Reventa' WHERE numSerie = ?
+                              UPDATE boletos 
+                              SET disponibilidad = 'Disponible', tipo = 'Reventa' 
+                              WHERE numSerie = ?
                               """;
 
     try {

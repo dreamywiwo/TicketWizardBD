@@ -13,6 +13,7 @@ import itson.ticketwizard.persistencia.ApartadoDAO;
 public class ApartadoControl {  
     private ApartadoDAO apartadoDAO;
 
+    
     public ApartadoControl(ApartadoDAO apartadoDAO) {
         this.apartadoDAO = apartadoDAO;
     }

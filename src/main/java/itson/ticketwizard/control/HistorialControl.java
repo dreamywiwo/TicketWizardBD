@@ -18,6 +18,7 @@ public class HistorialControl {
     }
 
     
+    
     public List<Historial> obtenerHistorialBoletos(Integer idUsuario) {
         if (idUsuario == null || idUsuario <= 0) {
             throw new IllegalArgumentException("El identificador del usuario es inválido.");

@@ -19,10 +19,6 @@ public class EventoControl {
         this.eventoDAO = eventoDAO;
     }
      
-    //     public void iniciarCasoUso(){
-//        this.formX = new RegistroArtista(this);
-//        this.formX.setVisible(true);
-//    }
     
     public Evento buscarEventoPorId(Integer idEvento) {
         if (idEvento == null || idEvento <= 0) {

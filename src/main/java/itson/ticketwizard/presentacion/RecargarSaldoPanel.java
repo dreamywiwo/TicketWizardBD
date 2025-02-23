@@ -82,20 +82,24 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("RECARGAR SALDO");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Saldo Actual");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("$ 0.00");
         jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 130, 40));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Cuanto deseas recargar?");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, -1, -1));
 
@@ -106,6 +110,7 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("DETALLES DE LA ORDEN");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -129,14 +134,17 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
         jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 110, 30));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Saldo a recargar:");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Saldo Total:");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("* Compra final - No hay reembolsos");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
@@ -150,6 +158,7 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(36, 11, 30));
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("$100.00");
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -161,6 +170,7 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(36, 11, 30));
         jButton3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("$200.00");
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -172,6 +182,7 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(36, 11, 30));
         jButton4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("$500.00");
         jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -183,6 +194,7 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(36, 11, 30));
         jButton5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("$1000.00");
         jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -194,6 +206,7 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(36, 11, 30));
         jButton6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("$2000.00");
         jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -205,6 +218,7 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(36, 11, 30));
         jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Otro");
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));

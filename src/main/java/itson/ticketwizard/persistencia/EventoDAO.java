@@ -72,7 +72,7 @@ public class EventoDAO {
     
     }
     
-    public List<EventoDTO> buscarEventosPorFiltro(String ciudad, String nombreLocal, Date fechaEvento) {
+    public List<EventoDTO> buscarEventosPorFiltro(String ciudad, String nombreEvento, Date fechaEvento) {
         
         List<EventoDTO> listaEventos = new ArrayList<>();
         String codigoSQL = """
@@ -90,7 +90,7 @@ public class EventoDAO {
    
             PreparedStatement comando = conexion.prepareStatement(codigoSQL);
             comando.setString(1, ciudad);
-            comando.setString(2, nombreLocal);
+            comando.setString(2, nombreEvento);
             comando.setDate(3, fechaEvento);
             
  

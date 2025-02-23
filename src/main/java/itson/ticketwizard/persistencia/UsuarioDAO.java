@@ -99,9 +99,9 @@ public class UsuarioDAO {
                     resultadosConsulta.getFloat("saldo")
                 );
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException ex){
+            System.err.println("Error al consultar el usuario: " + ex.getMessage());
+        } 
 
         return usuario;
 
@@ -149,9 +149,9 @@ public class UsuarioDAO {
                     resultadosConsulta.getFloat("saldo")
                 );
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException ex){
+            System.err.println("Error al iniciar sesion: " + ex.getMessage());
+        } 
 
         return usuario;
 

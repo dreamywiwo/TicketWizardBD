@@ -1,48 +1,56 @@
-/*
- 
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template*/
 package itson.ticketwizard.control;
 
 import java.util.List;
-import javax.swing.JOptionPane;
 import itson.ticketwizard.entidades.Historial;
 import itson.ticketwizard.persistencia.HistorialDAO;
+
 /**
- *
- 
-@author payde*/
+ * 
+@author payde
+*/
+
 public class HistorialControl {
- 
+
     private HistorialDAO historialDAO;
-//    private FormHistorialBoletos formHistorialBoletos;
 
     public HistorialControl(HistorialDAO historialDAO) {
         this.historialDAO = historialDAO;
     }
 
-//    public void iniciarCasoUso() {
-//        this.formHistorialBoletos = new FormHistorialBoletos(this);
-//        this.formHistorialBoletos.setVisible(true);
-//    }
-
+    
+    
     public List<Historial> obtenerHistorialBoletos(Integer idUsuario) {
+        if (idUsuario == null || idUsuario <= 0) {
+            throw new IllegalArgumentException("El identificador del usuario es inválido.");
+        }
+        
         List<Historial> historial = this.historialDAO.obtenerHistorialBoletos(idUsuario);
 
         if (historial == null || historial.isEmpty()) {
-//            JOptionPane.showMessageDialog(formHistorialBoletos, "No se encontró historial de boletos", "Información", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("No se encontró historial de boletos para el usuario con id: " + idUsuario);
         }
 
         return historial;
     }
 
-    public void registrarHistorial(Integer idTransaccion, Integer numSerie) {
-        boolean exito = this.historialDAO.registrarHistorial(idTransaccion, numSerie);
 
-        if (exito) {
-//            JOptionPane.showMessageDialog(formHistorialBoletos, "Historial registrado correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-//            JOptionPane.showMessageDialog(formHistorialBoletos, "No se pudo registrar el historial", "Error", JOptionPane.ERROR_MESSAGE);
+    public boolean registrarHistorial(Integer idTransaccion, Integer numSerie) {
+        if (idTransaccion == null || idTransaccion <= 0) {
+            throw new IllegalArgumentException("El identificador de transacción es inválido.");
         }
+        if (numSerie == null || numSerie <= 0) {
+            throw new IllegalArgumentException("El número de serie es inválido.");
+        }
+        
+        boolean exito = this.historialDAO.registrarHistorial(idTransaccion, numSerie);
+        
+        if (exito) {
+            System.out.println("Historial registrado correctamente.");
+        } else {
+            System.err.println("No se pudo registrar el historial.");
+        }
+        
+        return exito;
     }
 }
+

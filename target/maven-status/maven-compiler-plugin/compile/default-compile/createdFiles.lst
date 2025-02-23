@@ -1,6 +1,5 @@
 itson\ticketwizard\persistencia\UsuarioDAO.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$7.class
-itson\ticketwizard\presentacion\BoletoApp$BoletoPanel.class
 itson\ticketwizard\presentacion\RecargarSaldoPanel$5.class
 itson\ticketwizard\entidades\Transaccion.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$4.class
@@ -27,17 +26,14 @@ itson\ticketwizard\presentacion\EventoApp$Evento.class
 itson\ticketwizard\ticketWizard.class
 itson\ticketwizard\control\TransaccionControl.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$5.class
-itson\ticketwizard\presentacion\BoletoApp.class
 itson\ticketwizard\dtos\DireccionUsuarioDTO.class
 itson\ticketwizard\persistencia\BoletoDAO.class
 itson\ticketwizard\persistencia\ApartadoDAO.class
-itson\ticketwizard\presentacion\BoletoApp$BoletoPanel$1.class
 itson\ticketwizard\presentacion\IniciarSesionPanel$2.class
 itson\ticketwizard\dtos\ApartadoDTO.class
 itson\ticketwizard\persistencia\HistorialDAO.class
 itson\ticketwizard\presentacion\RecargarSaldoPanel$3.class
 itson\ticketwizard\presentacion\BusquedaEventoPanel.class
-itson\ticketwizard\presentacion\BoletoApp$Boleto.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$6.class
 itson\ticketwizard\presentacion\BoletoEventoPanel$1.class
 itson\ticketwizard\presentacion\ResumenCompraPanel$1.class

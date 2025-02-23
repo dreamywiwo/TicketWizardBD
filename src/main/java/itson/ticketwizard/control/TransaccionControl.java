@@ -33,7 +33,7 @@ public class TransaccionControl {
             throw new IllegalArgumentException("El identificador del apartado no puede ser nulo.");
         }
         
-        // Llamada al DAO para registrar la transacción
+     
         return transaccionDAO.registrarTransaccion(idComprador, idVendedor, monto, idApartado);
     }
     

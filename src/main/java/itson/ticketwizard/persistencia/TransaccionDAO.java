@@ -72,7 +72,7 @@ public class TransaccionDAO {
         return listaTransacciones;       
     }
     
-    public boolean registrarTransaccion(Integer idComprador, Integer idVendedor, float monto, Integer idApartado, Integer cantidadBoletos, Integer numSerie, float precio) {
+    public boolean registrarTransaccion(Integer idComprador, Integer idVendedor, float monto, Integer idApartado) {
     String codigoSQL = """
                        INSERT INTO transacciones (idComprador, idVendedor, monto, idApartado)
                        VALUES (?, ?, ?, ?);

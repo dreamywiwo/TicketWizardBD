@@ -4,20 +4,25 @@
  */
 package itson.ticketwizard.presentacion;
 
-import itson.ticketwizard.dtos.BoletoDTO;
 import itson.ticketwizard.dtos.BoletoEventoDTO;
-import itson.ticketwizard.entidades.Boleto;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridBagLayout;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 /**
@@ -29,20 +34,48 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     private List<BoletoEventoDTO> boletosSeleccionados;
     private double total;
     private JLabel lblTotal;
+    private JPanel panelBoletosDisponibles;
+    private JPanel panelBoletosSeleccionados;
 
     /**
      * Creates new form BoletoEventoPanel
      */
-    public BoletoEventoPanel() {
+    
+    public BoletoEventoPanel(){
+        
+    }
+    
+    public BoletoEventoPanel(List<BoletoEventoDTO> boletos) {
         initComponents();
         boletosSeleccionados = new ArrayList<>();
         total = 0;
+
         lblTotal = new JLabel("Total: $0.00");
         lblTotal.setFont(new Font("Leelawadee UI Semilight", Font.BOLD, 16));
         lblTotal.setForeground(Color.WHITE);
+
+        panelBoletosDisponibles = new JPanel();
+        panelBoletosDisponibles.setLayout(new BoxLayout(panelBoletosDisponibles, BoxLayout.Y_AXIS));
+
+        panelBoletosSeleccionados = new JPanel();
+        panelBoletosSeleccionados.setLayout(new BoxLayout(panelBoletosSeleccionados, BoxLayout.Y_AXIS));
+        panelBoletosSeleccionados.setBackground(new Color(90, 14, 51)); // Color de fondo
+
+        panelTotal.setLayout(new BorderLayout());
+        panelTotal.add(lblTotal, BorderLayout.CENTER);
+        
+        jPanel2.setLayout(new BorderLayout());
+        jPanel2.add(panelBoletosSeleccionados, BorderLayout.CENTER);
+
+        jScrollPane1.setViewportView(panelBoletosDisponibles);
+
+        cargarBoletos(boletos);
+
         jPanel2.add(lblTotal);
         this.setLocationRelativeTo(null);
+
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,14 +90,20 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        panelBoletosSeleccionados2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        panelTotal = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(36, 11, 30));
@@ -85,25 +124,70 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoapp.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 220, -1));
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("NOMBREEVENTO BOLETOS EN NOMBRELOCAL");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
+        jScrollPane1.setBackground(new java.awt.Color(36, 11, 30));
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setOpaque(true);
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 460, 320));
 
         jPanel2.setBackground(new java.awt.Color(90, 14, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
+        panelBoletosSeleccionados2.setBackground(new java.awt.Color(90, 14, 51));
+
+        javax.swing.GroupLayout panelBoletosSeleccionados2Layout = new javax.swing.GroupLayout(panelBoletosSeleccionados2);
+        panelBoletosSeleccionados2.setLayout(panelBoletosSeleccionados2Layout);
+        panelBoletosSeleccionados2Layout.setHorizontalGroup(
+            panelBoletosSeleccionados2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
+        panelBoletosSeleccionados2Layout.setVerticalGroup(
+            panelBoletosSeleccionados2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        jPanel2.add(panelBoletosSeleccionados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 44, 210, 200));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("BOLETOS");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 8)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("* Tus boletos no estan apartados todavia. ");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 8)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Para asegurar tus boletos selecciona \"Continuar\".");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(132, 47, 88));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jButton1.setText("Continuar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+
+        panelTotal.setBackground(new java.awt.Color(90, 14, 51));
+
+        javax.swing.GroupLayout panelTotalLayout = new javax.swing.GroupLayout(panelTotal);
+        panelTotal.setLayout(panelTotalLayout);
+        panelTotalLayout.setHorizontalGroup(
+            panelTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+        panelTotalLayout.setVerticalGroup(
+            panelTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(panelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 120, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, 240, 340));
 
@@ -122,12 +206,6 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 460, 10));
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 30)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("NOMBREEVENTO (boletos)");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rayadelgada.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
@@ -137,80 +215,109 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rayadelgada.png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
 
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 30)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("NOMBREEVENTO (boletos)");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("NOMBREEVENTO BOLETOS EN NOMBRELOCAL");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
     
-    
-    public void agregarBoletos(List<BoletoEventoDTO> listaBoletos) {
-        jPanel2.removeAll();
-        jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
-        
-        for (BoletoEventoDTO boleto : listaBoletos) {
-            jPanel2.add(new BoletoPanel(boleto));
+    private void cargarBoletos(List<BoletoEventoDTO> boletos) {
+        for (BoletoEventoDTO boleto : boletos) {
+            BoletoPanel boletoPanel = new BoletoPanel(boleto, this);
+            panelBoletosDisponibles.add(boletoPanel);
+        }
+        panelBoletosDisponibles.revalidate();
+        panelBoletosDisponibles.repaint();
+    }
+
+    public void agregarBoletoSeleccionado(BoletoEventoDTO boleto) {
+        if (!boletosSeleccionados.contains(boleto)) {
+            boletosSeleccionados.add(boleto);
+            actualizarTotal();
+            actualizarPanelSeleccionados();
+        }
+    }
+
+    public void removerBoletoSeleccionado(BoletoEventoDTO boleto) {
+        boletosSeleccionados.remove(boleto);
+        actualizarTotal();
+        actualizarPanelSeleccionados();
+    }
+
+    private void actualizarPanelSeleccionados() {
+        panelBoletosSeleccionados2.removeAll();
+
+        for (BoletoEventoDTO boleto : boletosSeleccionados) {
+            JPanel boletoInfoPanel = new JPanel();
+            boletoInfoPanel.setLayout(new BoxLayout(boletoInfoPanel, BoxLayout.Y_AXIS));
+            boletoInfoPanel.setBackground(new Color(90, 14, 51));
+            boletoInfoPanel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
+
+            JLabel lblFila = new JLabel("Fila: " + boleto.fila);
+            JLabel lblAsiento = new JLabel("Asiento: " + boleto.numAsiento);
+            JLabel lblTipo = new JLabel("Tipo: " + boleto.tipo);
+
+            lblFila.setForeground(Color.WHITE);
+            lblAsiento.setForeground(Color.WHITE);
+            lblTipo.setForeground(Color.WHITE);
+
+            boletoInfoPanel.add(lblFila);
+            boletoInfoPanel.add(lblAsiento);
+            boletoInfoPanel.add(lblTipo);
+
+            panelBoletosSeleccionados2.add(boletoInfoPanel);
         }
 
-        jPanel2.revalidate();
-        jPanel2.repaint();
+        panelBoletosSeleccionados2.revalidate();
+        panelBoletosSeleccionados2.repaint();
+
+        // Habilitar o deshabilitar el botón "Continuar"
+        jButton1.setEnabled(!boletosSeleccionados.isEmpty());
     }
-    
+    private void actualizarTotal() {
+        total = boletosSeleccionados.stream().mapToDouble(BoletoEventoDTO::getPrecio).sum();
+        lblTotal.setText("Total: $" + total);
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BoletoEventoPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BoletoEventoPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BoletoEventoPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BoletoEventoPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BoletoEventoPanel().setVisible(true);
-                
-                 SwingUtilities.invokeLater(() -> {
-                // Crear ventana principal
-                BoletoEventoPanel panel = new BoletoEventoPanel();
-                
-                Date fecha = Date.valueOf(LocalDate.MAX);
-                Time hora = Time.valueOf(LocalTime.MIN);
-
-                // Crear lista de boletos de prueba
-                List<BoletoEventoDTO> boletos = new ArrayList<>();
-                boletos.add(new BoletoEventoDTO(1700.00,"Disponible","Reventa",52,"A", "Concierto Rock", fecha,hora,"ASDASD","ADASDA"));
-
-                // Agregar boletos a la ventana
-                panel.agregarBoletos(boletos);
-
-                // Mostrar ventana
-                panel.setVisible(true);
-            });
-            }
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            List<BoletoEventoDTO> boletos = new ArrayList<>();
+            
+            // Agregar boletos de prueba
+            boletos.add(new BoletoEventoDTO(1700.00,"si", "reventa",52, "A", "HAMILTON",null,null, "CD MEXICO", "TEATRO BELLAS ARTES"));
+            boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "aaa A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
+            boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "eee A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
+            boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "bbb A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
+            boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "wuuuuuuu A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
+            
+            // Crear y mostrar la ventana
+            BoletoEventoPanel panel = new BoletoEventoPanel(boletos);
+            panel.setVisible(true);
         });
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -218,9 +325,12 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelBoletosSeleccionados2;
+    private javax.swing.JPanel panelTotal;
     // End of variables declaration//GEN-END:variables
 }

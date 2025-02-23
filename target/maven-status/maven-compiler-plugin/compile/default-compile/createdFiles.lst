@@ -41,6 +41,7 @@ itson\ticketwizard\entidades\DireccionUsuario.class
 itson\ticketwizard\dtos\ApartadoDTO.class
 itson\ticketwizard\dtos\HistorialDTO.class
 itson\ticketwizard\persistencia\HistorialDAO.class
+itson\ticketwizard\control\ApartadoControl.class
 itson\ticketwizard\presentacion\BusquedaEventoPanel.class
 itson\ticketwizard\presentacion\ResumenCompraPanel.class
 itson\ticketwizard\presentacion\BoletoApp$Boleto.class

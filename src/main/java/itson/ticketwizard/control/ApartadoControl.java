@@ -5,52 +5,39 @@
 package itson.ticketwizard.control;
 
 import itson.ticketwizard.persistencia.ApartadoDAO;
-import java.util.List;
-import javax.swing.JOptionPane;
+
 /**
  *
  * @author payde
  */
-public class ApartadoControl {
-    
+public class ApartadoControl {  
     private ApartadoDAO apartadoDAO;
-    //private FormRegistroApartado formRegistroApartado;
-   // private FormCatalogoApartados formCatalogoApartados;
 
     public ApartadoControl(ApartadoDAO apartadoDAO) {
         this.apartadoDAO = apartadoDAO;
     }
+
+    public boolean registrarApartado(Integer numSerie, Integer idUsuario) {
+        if (numSerie == null || numSerie <= 0) {
+            throw new IllegalArgumentException("El número de serie debe ser mayor que cero y no nulo.");
+        }
+        if (idUsuario == null || idUsuario <= 0) {
+            throw new IllegalArgumentException("El identificador del usuario debe ser mayor que cero y no nulo.");
+        }
+        
+        return apartadoDAO.registrarApartado(numSerie, idUsuario);
+    }
     
-//    public void iniciarCasoUso() {
-//        this.formRegistroApartado = new FormRegistroApartado(this);
-//        this.formRegistroApartado.setVisible(true);
-//    }
-
-//    public void registrarApartado(Integer numSerie, Integer idUsuario) {
-//        boolean exito = this.apartadoDAO.registrarApartado(numSerie, idUsuario);
-//        
-//        if (exito) {
-//            JOptionPane.showMessageDialog(formRegistroApartado, "Se registró el apartado", "Información", JOptionPane.INFORMATION_MESSAGE);
-//            this.mostrarFormularioCatalogoApartados();
-//        } else {
-//            JOptionPane.showMessageDialog(formRegistroApartado, "No se pudo registrar el apartado", "Error", JOptionPane.ERROR_MESSAGE);
-//        }
-//    }
-
-//    public void eliminarApartado(int idApartado) {
-//        boolean exito = this.apartadoDAO.eliminarApartado(idApartado);
-//        
-//        if (exito) {
-//            JOptionPane.showMessageDialog(formCatalogoApartados, "Apartado eliminado", "Información", JOptionPane.INFORMATION_MESSAGE);
-//        } else {
-//            JOptionPane.showMessageDialog(formCatalogoApartados, "No se pudo eliminar el apartado", "Error", JOptionPane.ERROR_MESSAGE);
-//        }
-//    }
-//
-//    private void mostrarFormularioCatalogoApartados() {
-//        this.formCatalogoApartados = new FormCatalogoApartados(this);
-//        this.formCatalogoApartados.setVisible(true);
-//    }
+    
+    public boolean eliminarApartado(int idApartado) {
+        if (idApartado <= 0) {
+            throw new IllegalArgumentException("El identificador del apartado debe ser mayor que cero.");
+        }
+        
+        return apartadoDAO.eliminarApartado(idApartado);
+    }
 }
+
+
 
 

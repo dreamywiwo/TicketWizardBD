@@ -21,8 +21,7 @@ public class HistorialDAO {
         this.manejadorConexiones = manejadorConexiones;
     }
     
-    
-    
+  
     public List<Historial> obtenerHistorialBoletos(Integer idUsuario){
 
         return null;

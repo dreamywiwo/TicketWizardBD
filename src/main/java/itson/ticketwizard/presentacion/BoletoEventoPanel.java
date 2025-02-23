@@ -42,9 +42,9 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
      * Creates new form BoletoEventoPanel
      */
     
-    public BoletoEventoPanel(){
+    public BoletoEventoPanel(){   
         initComponents();
-        setLocationRelativeTo(null);    
+        setLocationRelativeTo(null);
     }
     
     public BoletoEventoPanel(List<BoletoEventoDTO> boletos) {

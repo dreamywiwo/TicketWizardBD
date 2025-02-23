@@ -56,6 +56,7 @@ public class VentaBoletoPanel extends javax.swing.JFrame {
         jLabel19.setText("FILA");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(36, 11, 30));

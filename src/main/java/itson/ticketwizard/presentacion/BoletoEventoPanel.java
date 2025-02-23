@@ -4,17 +4,43 @@
  */
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.dtos.BoletoDTO;
+import itson.ticketwizard.dtos.BoletoEventoDTO;
+import itson.ticketwizard.entidades.Boleto;
+import java.awt.Color;
+import java.awt.Font;
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Dana Chavez
  */
 public class BoletoEventoPanel extends javax.swing.JFrame {
+    
+    private List<BoletoEventoDTO> boletosSeleccionados;
+    private double total;
+    private JLabel lblTotal;
 
     /**
      * Creates new form BoletoEventoPanel
      */
     public BoletoEventoPanel() {
         initComponents();
+        boletosSeleccionados = new ArrayList<>();
+        total = 0;
+        lblTotal = new JLabel("Total: $0.00");
+        lblTotal.setFont(new Font("Leelawadee UI Semilight", Font.BOLD, 16));
+        lblTotal.setForeground(Color.WHITE);
+        jPanel2.add(lblTotal);
     }
 
     /**
@@ -41,6 +67,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(36, 11, 30));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(36, 11, 30));
@@ -114,6 +141,20 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    public void agregarBoletos(List<BoletoEventoDTO> listaBoletos) {
+        jPanel2.removeAll();
+        jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
+        
+        for (BoletoEventoDTO boleto : listaBoletos) {
+            jPanel2.add(new BoletoPanel(boleto));
+        }
+
+        jPanel2.revalidate();
+        jPanel2.repaint();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -145,6 +186,24 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new BoletoEventoPanel().setVisible(true);
+                
+                 SwingUtilities.invokeLater(() -> {
+                // Crear ventana principal
+                BoletoEventoPanel panel = new BoletoEventoPanel();
+                
+                Date fecha = Date.valueOf(LocalDate.MAX);
+                Time hora = Time.valueOf(LocalTime.MIN);
+
+                // Crear lista de boletos de prueba
+                List<BoletoEventoDTO> boletos = new ArrayList<>();
+                boletos.add(new BoletoEventoDTO(1700.00,"Disponible","Reventa",52,"A", "Concierto Rock", fecha,hora,"ASDASD","ADASDA"));
+
+                // Agregar boletos a la ventana
+                panel.agregarBoletos(boletos);
+
+                // Mostrar ventana
+                panel.setVisible(true);
+            });
             }
         });
     }

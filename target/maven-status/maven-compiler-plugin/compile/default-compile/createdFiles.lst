@@ -63,6 +63,7 @@ itson\ticketwizard\dtos\BoletoDTO.class
 itson\ticketwizard\entidades\Boleto.class
 itson\ticketwizard\dtos\BoletoEventoTransaccionDTO.class
 itson\ticketwizard\presentacion\EventoApp.class
+itson\ticketwizard\presentacion\BoletoPanel.class
 itson\ticketwizard\dtos\EventoDTO.class
 itson\ticketwizard\entidades\BoletoEvento.class
 itson\ticketwizard\persistencia\EventoDAO.class

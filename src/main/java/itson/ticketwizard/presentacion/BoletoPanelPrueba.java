@@ -21,7 +21,6 @@ public class BoletoPanelPrueba extends JPanel {
         contenedorBoletos = new JPanel();
         contenedorBoletos.setLayout(new BoxLayout(contenedorBoletos, BoxLayout.Y_AXIS));
         contenedorBoletos.setBackground(Color.decode("#240B1E"));
-
         for (Boleto boleto : boletos) {
             contenedorBoletos.add(new BoletoPanel(boleto));
         }
@@ -39,6 +38,12 @@ public class BoletoPanelPrueba extends JPanel {
         lblTotal.setForeground(Color.WHITE);
 
         JButton btnSiguiente = new JButton("Siguiente");
+        btnSiguiente.setBackground(new java.awt.Color(255, 255, 255));
+        btnSiguiente.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnSiguiente.setForeground(new java.awt.Color(36, 11, 30));
+        btnSiguiente.setText("Editar Datos");
+        panelSeleccionados.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 170, -1));
+
         btnSiguiente.addActionListener(e -> JOptionPane.showMessageDialog(this, "Continuando con la compra..."));
 
         JPanel panelDerecho = new JPanel();

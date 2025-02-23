@@ -37,7 +37,6 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     private JLabel lblTotal;
     private JPanel panelBoletosDisponibles;
     private JPanel panelBoletosSeleccionados;
-    private javax.swing.JButton jButtonCancelar;
 
     /**
      * Creates new form BoletoEventoPanel
@@ -51,7 +50,6 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     public BoletoEventoPanel(List<BoletoEventoDTO> boletos) {
         initComponents();
         
-            // Inicializar lista si es null
         if (boletosSeleccionados == null) {
             boletosSeleccionados = new ArrayList<>();
         }
@@ -181,6 +179,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(132, 47, 88));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Continuar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +205,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(132, 47, 88));
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Regresar");
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 90, -1));
 
@@ -306,10 +306,8 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         panelBoletosSeleccionados2.revalidate();
         panelBoletosSeleccionados2.repaint();
 
-         // Deshabilitar botón "Continuar" si no hay boletos seleccionados
         jButton1.setEnabled(!boletosSeleccionados.isEmpty());
 
-        // O si boletosSeleccionados aún no está inicializado, asegúrate de que es una lista vacía:
         if (boletosSeleccionados == null || boletosSeleccionados.isEmpty()) {
             jButton1.setEnabled(false);
         }
@@ -328,14 +326,12 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         SwingUtilities.invokeLater(() -> {
             List<BoletoEventoDTO> boletos = new ArrayList<>();
             
-            // Agregar boletos de prueba
             boletos.add(new BoletoEventoDTO(1700.00,"si", "reventa",52, "A", "HAMILTON",null,null, "CD MEXICO", "TEATRO BELLAS ARTES"));
             boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "aaa A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
             boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "eee A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
             boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "bbb A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
             boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "wuuuuuuu A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
-            
-            // Crear y mostrar la ventana
+
             BoletoEventoPanel panel = new BoletoEventoPanel(boletos);
             panel.setVisible(true);
         });

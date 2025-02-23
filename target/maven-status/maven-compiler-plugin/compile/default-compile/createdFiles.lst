@@ -13,7 +13,6 @@ itson\ticketwizard\entidades\Apartado.class
 itson\ticketwizard\presentacion\PerfilUsuarioPanel$2.class
 itson\ticketwizard\presentacion\IniciarSesionPanel.class
 itson\ticketwizard\presentacion\IniciarSesionPanel$4.class
-itson\ticketwizard\presentacion\BoletoPanelPrueba$BoletoPanel.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$1.class
 itson\ticketwizard\persistencia\BoletoDAO$1.class
 itson\ticketwizard\presentacion\RecargarSaldoPanel$8.class
@@ -46,7 +45,6 @@ itson\ticketwizard\entidades\Historial.class
 itson\ticketwizard\dtos\BoletoEventoDTO.class
 itson\ticketwizard\persistencia\ManejadorConexiones.class
 itson\ticketwizard\presentacion\EventoApp$EventoPanel.class
-itson\ticketwizard\presentacion\BoletoPanelPrueba$Boleto.class
 itson\ticketwizard\presentacion\BusquedaEventoPanel$2.class
 itson\ticketwizard\control\EventoControl.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$8.class
@@ -81,5 +79,4 @@ itson\ticketwizard\control\ApartadoControl.class
 itson\ticketwizard\presentacion\BoletosUsuarioPanel.class
 itson\ticketwizard\presentacion\ResumenCompraPanel.class
 itson\ticketwizard\presentacion\IniciarSesionPanel$5.class
-itson\ticketwizard\presentacion\BoletoPanelPrueba.class
 itson\ticketwizard\presentacion\VentaBoletoPanel$1.class

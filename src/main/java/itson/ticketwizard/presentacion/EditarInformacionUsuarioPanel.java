@@ -100,6 +100,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/raya.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/raya.png"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
 
@@ -108,6 +109,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(36, 11, 30));
         jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setText("  Apellido Materno");
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +121,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
 
         jTextField2.setBackground(new java.awt.Color(36, 11, 30));
         jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setText("  Num. Ext.");
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +133,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
 
         jTextField3.setBackground(new java.awt.Color(36, 11, 30));
         jTextField3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         jTextField3.setText("  Apellido Paterno");
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +145,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
 
         jTextField4.setBackground(new java.awt.Color(36, 11, 30));
         jTextField4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
         jTextField4.setText("  Nombres");
         jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +157,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
 
         jTextField5.setBackground(new java.awt.Color(36, 11, 30));
         jTextField5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
         jTextField5.setText("  Correo Electronico");
         jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +169,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
 
         jTextField6.setBackground(new java.awt.Color(36, 11, 30));
         jTextField6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
         jTextField6.setText("  Contrasena");
         jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +181,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
 
         jTextField7.setBackground(new java.awt.Color(36, 11, 30));
         jTextField7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
         jTextField7.setText("  Telefono");
         jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +193,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
 
         jTextField8.setBackground(new java.awt.Color(36, 11, 30));
         jTextField8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField8.setForeground(new java.awt.Color(255, 255, 255));
         jTextField8.setText("  Calle");
         jTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
@@ -196,6 +205,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
 
         jTextField9.setBackground(new java.awt.Color(36, 11, 30));
         jTextField9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField9.setForeground(new java.awt.Color(255, 255, 255));
         jTextField9.setText("  Colonia");
         jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -206,22 +216,27 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
         jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 220, 30));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Direccion");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Nombre");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Correo Electronico");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Contrasena");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Telefono");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
 

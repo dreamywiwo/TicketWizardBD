@@ -15,6 +15,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
      */
     public EditarInformacionUsuarioPanel() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -264,6 +265,11 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 490, 120, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
@@ -336,6 +342,14 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        PerfilUsuarioPanel perfilUsuario = new PerfilUsuarioPanel();
+        perfilUsuario.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

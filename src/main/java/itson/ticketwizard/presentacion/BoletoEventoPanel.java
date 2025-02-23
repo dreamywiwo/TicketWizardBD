@@ -40,6 +40,11 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     /**
      * Creates new form BoletoEventoPanel
      */
+    
+    public BoletoEventoPanel(){
+        
+    }
+    
     public BoletoEventoPanel(List<BoletoEventoDTO> boletos) {
         initComponents();
         boletosSeleccionados = new ArrayList<>();
@@ -65,6 +70,10 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         jScrollPane1.setViewportView(panelBoletosDisponibles);
 
         cargarBoletos(boletos);
+
+        jPanel2.add(lblTotal);
+        this.setLocationRelativeTo(null);
+
     }
 
 

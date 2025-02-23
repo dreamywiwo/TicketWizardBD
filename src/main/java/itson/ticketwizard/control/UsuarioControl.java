@@ -7,9 +7,7 @@ import itson.ticketwizard.dtos.UsuarioDTO;
 import itson.ticketwizard.persistencia.UsuarioDAO;
 import itson.ticketwizard.presentacion.IniciarSesionPanel;
 import itson.ticketwizard.presentacion.RecargarSaldoPanel;
-//import itson.ticketwizard.persistencia.UsuarioDAOImpl;
-//import itson.ticketwizard.presentacion.FormIniciarSesion;
-//import itson.ticketwizard.presentacion.FormRecargarSaldo;
+import org.mindrot.jbcrypt.BCrypt;
 
 
 /**
@@ -34,31 +32,63 @@ public class UsuarioControl {
 
 
     public UsuarioDTO iniciarSesion(String correoElectronico, String contrasena) {
-        
-        if (correoElectronico == null || correoElectronico.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(iniciarSesionPanel, "El correo no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-            return null;
-        }
-        if (contrasena == null || contrasena.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(iniciarSesionPanel, "La contraseña no puede estar vacía", "Error", JOptionPane.ERROR_MESSAGE);
-            return null;
-        }
-        
-        UsuarioDTO usuario = usuarioDAO.iniciarSesion(correoElectronico, contrasena);
-        if (usuario == null) {
-            JOptionPane.showMessageDialog(iniciarSesionPanel, "Credenciales incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        return usuario;
+    if (correoElectronico == null || correoElectronico.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(iniciarSesionPanel, "El correo no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+        return null;
+    }
+    if (contrasena == null || contrasena.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(iniciarSesionPanel, "La contraseña no puede estar vacía", "Error", JOptionPane.ERROR_MESSAGE);
+        return null;
     }
 
-      
+    UsuarioDTO usuario = usuarioDAO.obtenerUsuarioPorCorreo(correoElectronico);
+    if (usuario == null || !BCrypt.checkpw(contrasena, usuario.getContrasena())) {
+        JOptionPane.showMessageDialog(iniciarSesionPanel, "Credenciales incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
+        return null;
+    }
+    return usuario;
+}
+
+    public UsuarioDTO obtenerUsuarioPorCorreo(String correoElectronico) {
+        return usuarioDAO.obtenerUsuarioPorCorreo(correoElectronico);
+    }
+
+    public UsuarioDTO obtenerUsuarioPorId(Integer idUsuario) {
+        return usuarioDAO.obtenerUsuarioPorId(idUsuario);
+    }
+
+    public boolean actualizarNombreUsuario(Integer idUsuario, String nombres, String apellidoP, String apellidoM) {
+        return usuarioDAO.actualizarNombreUsuario(idUsuario, nombres, apellidoP, apellidoM);
+    }
+
+    public boolean actualizarCorreoElectronico(Integer idUsuario, String correoElectronico) {
+        return usuarioDAO.actualizarCorreoElectronico(idUsuario, correoElectronico);
+    }
+
+    public boolean actualizarContrasena(Integer idUsuario, String contrasena) {
+    if (contrasena == null || contrasena.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(iniciarSesionPanel, "La contraseña no puede estar vacía", "Error", JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+    String contrasenaEncriptada = BCrypt.hashpw(contrasena, BCrypt.gensalt());
+    return usuarioDAO.actualizarContrasena(idUsuario, contrasenaEncriptada);
+    }
+
+    public boolean actualizarTelefono(Integer idUsuario, String telefono) {
+        return usuarioDAO.actualizarTelefono(idUsuario, telefono);
+    }
+
+    public boolean actualizarDireccion(Integer idUsuario, String calle, String colonia, String numeroCasa) {
+        return usuarioDAO.actualizarDireccion(idUsuario, calle, colonia, numeroCasa);
+    }
+
     public void mostrarRecargarSaldo(){
         this.iniciarSesionPanel = new IniciarSesionPanel();
         this.iniciarSesionPanel.setVisible(true);
     }
 
     public void recargarSaldo(Integer idUsuario, float sumaSaldo) {
-        // Validaciones
+       
         if (idUsuario == null || idUsuario <= 0) {
             JOptionPane.showMessageDialog(iniciarSesionPanel, "ID de usuario inválido", "Error", JOptionPane.ERROR_MESSAGE);
             return;

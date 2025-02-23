@@ -7,7 +7,7 @@ import itson.ticketwizard.dtos.UsuarioDTO;
 import itson.ticketwizard.persistencia.UsuarioDAO;
 import itson.ticketwizard.presentacion.IniciarSesionPanel;
 import itson.ticketwizard.presentacion.RecargarSaldoPanel;
-//import itson.ticketwizard.persistencia.UsuarioDAOImpl;
+//import itson.ticketwizard.persistencia.UsuarioDAO;
 //import itson.ticketwizard.presentacion.FormIniciarSesion;
 //import itson.ticketwizard.presentacion.FormRecargarSaldo;
 
@@ -51,14 +51,41 @@ public class UsuarioControl {
         return usuario;
     }
 
-      
+    public UsuarioDTO obtenerUsuarioPorCorreo(String correoElectronico) {
+        return usuarioDAO.obtenerUsuarioPorCorreo(correoElectronico);
+    }
+
+    public UsuarioDTO obtenerUsuarioPorId(Integer idUsuario) {
+        return usuarioDAO.obtenerUsuarioPorId(idUsuario);
+    }
+
+    public boolean actualizarNombreUsuario(Integer idUsuario, String nombres, String apellidoP, String apellidoM) {
+        return usuarioDAO.actualizarNombreUsuario(idUsuario, nombres, apellidoP, apellidoM);
+    }
+
+    public boolean actualizarCorreoElectronico(Integer idUsuario, String correoElectronico) {
+        return usuarioDAO.actualizarCorreoElectronico(idUsuario, correoElectronico);
+    }
+
+    public boolean actualizarContrasena(Integer idUsuario, String contrasena) {
+        return usuarioDAO.actualizarContrasena(idUsuario, contrasena);
+    }
+
+    public boolean actualizarTelefono(Integer idUsuario, String telefono) {
+        return usuarioDAO.actualizarTelefono(idUsuario, telefono);
+    }
+
+    public boolean actualizarDireccion(Integer idUsuario, String calle, String colonia, String numeroCasa) {
+        return usuarioDAO.actualizarDireccion(idUsuario, calle, colonia, numeroCasa);
+    }
+
     public void mostrarRecargarSaldo(){
         this.iniciarSesionPanel = new IniciarSesionPanel();
         this.iniciarSesionPanel.setVisible(true);
     }
 
     public void recargarSaldo(Integer idUsuario, float sumaSaldo) {
-        // Validaciones
+       
         if (idUsuario == null || idUsuario <= 0) {
             JOptionPane.showMessageDialog(iniciarSesionPanel, "ID de usuario inválido", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -76,4 +103,5 @@ public class UsuarioControl {
         }
     }
 }
+
 

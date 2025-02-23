@@ -22,6 +22,7 @@ import java.util.List;
 public class BoletoDAO {
     
     private ManejadorConexiones manejadorConexiones;
+    private ApartadoDAO apartados;
 
     public BoletoDAO() {
         this.manejadorConexiones = new ManejadorConexiones();
@@ -217,36 +218,46 @@ public class BoletoDAO {
     }
     
     public boolean comprarBoleto(Integer numSerie, Integer idComprador, float precio) {
-        String codigoSQLSelectComprador = """
-                                           SELECT saldo FROM usuarios WHERE idUsuario = ?
+    String codigoSQLSelectComprador = """
+                                      SELECT saldo 
+                                      FROM usuarios 
+                                      WHERE idUsuario = ?
+                                      """;
+    String codigoSQLSelectBoleto = """
+                                   SELECT idUsuario 
+                                   FROM boletos 
+                                   WHERE numSerie = ?
+                                   """;
+    String codigoSQLUpdateSaldoComprador = """
+                                           UPDATE usuarios 
+                                           SET saldo = ? 
+                                           WHERE idUsuario = ?
                                            """;
-        String codigoSQLSelectBoleto = """
-                                        SELECT idUsuario FROM boletos WHERE numSerie = ?
-                                        """;
-        String codigoSQLUpdateSaldoComprador = """
-                                                UPDATE usuarios SET saldo = ? WHERE idUsuario = ?
-                                                """;
-        String codigoSQLUpdateSaldoVendedor = """
-                                               UPDATE usuarios SET saldo = saldo + ? WHERE idUsuario = ?
-                                               """;
-        String codigoSQLUpdateBoleto = """
-                                        UPDATE boletos SET idUsuario = ?, disponibilidad = 'Reservado' WHERE numSerie = ?
-                                        """;
+    String codigoSQLUpdateSaldoVendedor = """
+                                          UPDATE usuarios 
+                                          SET saldo = saldo + ? 
+                                          WHERE idUsuario = ?
+                                          """;
+    String codigoSQLUpdateBoleto = """
+                                   UPDATE boletos 
+                                   SET idUsuario = ?, disponibilidad = 'Reservado' 
+                                   WHERE numSerie = ?
+                                   """;
 
     try {
         Connection conexion = this.manejadorConexiones.crearConexion();
 
         PreparedStatement comandoSelectComprador = conexion.prepareStatement(codigoSQLSelectComprador);
         comandoSelectComprador.setInt(1, idComprador);
-        ResultSet rsComprador = comandoSelectComprador.executeQuery();
+        ResultSet resultadoConsultaComprador = comandoSelectComprador.executeQuery();
 
         PreparedStatement comandoSelectBoleto = conexion.prepareStatement(codigoSQLSelectBoleto);
         comandoSelectBoleto.setInt(1, numSerie);
-        ResultSet rsBoleto = comandoSelectBoleto.executeQuery();
+        ResultSet resultadoConsultaBoleto = comandoSelectBoleto.executeQuery();
 
-        if (rsComprador.next() && rsBoleto.next()) {
-            float saldoActualComprador = rsComprador.getFloat("saldo");
-            int idVendedor = rsBoleto.getInt("idUsuario");
+        if (resultadoConsultaComprador.next() && resultadoConsultaBoleto.next()) {
+            float saldoActualComprador = resultadoConsultaComprador.getFloat("saldo");
+            int idVendedor = resultadoConsultaBoleto.getInt("idUsuario");
 
             if (saldoActualComprador >= precio) {
                 float nuevoSaldoComprador = saldoActualComprador - precio;
@@ -269,7 +280,18 @@ public class BoletoDAO {
                 System.out.println("Boleto comprado con éxito. Saldo actualizado: " + nuevoSaldoComprador);
                 return true;
             } else {
-                System.out.println("Saldo insuficiente.");
+                System.out.println("Saldo insuficiente. Realizando apartado.");
+                
+                apartados.registrarApartado(numSerie, idComprador);
+
+                new java.util.Timer().schedule(new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        apartados.eliminarApartado(numSerie);
+                        System.out.println("Apartado eliminado después de 10 minutos.");
+                    }
+                }, 10 * 60 * 1000);
+
                 return false;
             }
         } else {
@@ -281,8 +303,7 @@ public class BoletoDAO {
         return false;
     }
 }
-
-    
+  
     public boolean venderBoleto(Integer numSerie, Integer idVendedor) {
     String codigoSQLSelect = """
                               SELECT idUsuario, disponibilidad 

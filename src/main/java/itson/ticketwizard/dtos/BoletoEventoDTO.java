@@ -14,17 +14,17 @@ import java.sql.Time;
 public class BoletoEventoDTO {
     
     private Integer numSerie;
-    private double precio;
+    public double precio;
     private String disponibilidad;
-    private String tipo;
-    private Integer numAsiento;
-    private String fila;
+    public String tipo;
+    public Integer numAsiento;
+    public String fila;
     private Integer idEvento;
     private String nombreEvento;
     private Date fechaEvento;
     private Time horaEvento;
-    private String ciudad;
-    private String nombreLocal;
+    public String ciudad;
+    public String nombreLocal;
 
     public BoletoEventoDTO(Integer numSerie, double precio, String disponibilidad, String tipo, Integer numAsiento, String fila, Integer idEvento, String nombreEvento, Date fechaEvento, Time horaEvento, String ciudad, String nombreLocal) {
         this.numSerie = numSerie;

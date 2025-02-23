@@ -83,6 +83,8 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         jScrollPane1.setViewportView(panelBoletosDisponibles);
 
         cargarBoletos(boletos);
+        
+        setLocationRelativeTo(null);
 
 
 

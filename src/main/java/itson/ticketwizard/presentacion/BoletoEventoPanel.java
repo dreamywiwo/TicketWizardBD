@@ -85,9 +85,6 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         cargarBoletos(boletos);
         
         setLocationRelativeTo(null);
-
-
-
     }
 
 
@@ -141,7 +138,6 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(36, 11, 30));
         jScrollPane1.setBorder(null);
-        jScrollPane1.setOpaque(true);
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 460, 320));
 
         jPanel2.setBackground(new java.awt.Color(90, 14, 51));
@@ -209,6 +205,11 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Regresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 90, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, 240, 340));
@@ -255,8 +256,16 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        ResumenCompraPanel resumen = new ResumenCompraPanel();
+        resumen.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        BusquedaEventoPanel busqueda = new BusquedaEventoPanel();
+        busqueda.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     private void cargarBoletos(List<BoletoEventoDTO> boletos) {
         for (BoletoEventoDTO boleto : boletos) {

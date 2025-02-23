@@ -16,6 +16,7 @@ itson\ticketwizard\presentacion\IniciarSesionPanel$4.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$1.class
 itson\ticketwizard\persistencia\BoletoDAO$1.class
 itson\ticketwizard\presentacion\RecargarSaldoPanel$8.class
+itson\ticketwizard\presentacion\BoletoEventoPanel$2.class
 itson\ticketwizard\presentacion\BoletosUsuarioPanel$1.class
 itson\ticketwizard\control\BoletoControl.class
 itson\ticketwizard\entidades\BoletoEventoTransaccion.class
@@ -24,6 +25,7 @@ itson\ticketwizard\presentacion\IniciarSesionPanel$3.class
 itson\ticketwizard\presentacion\VentaBoletoPanel.class
 itson\ticketwizard\presentacion\BoletoEventoPanel.class
 itson\ticketwizard\presentacion\EventoApp$Evento.class
+itson\ticketwizard\NewMain.class
 itson\ticketwizard\presentacion\PerfilUsuarioPanel$4.class
 itson\ticketwizard\ticketWizard.class
 itson\ticketwizard\control\TransaccionControl.class

@@ -19,6 +19,7 @@ public class IniciarSesionPanel extends javax.swing.JFrame {
      */
     public IniciarSesionPanel() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -137,7 +138,9 @@ public class IniciarSesionPanel extends javax.swing.JFrame {
 
         if (usuario != null) {
             System.out.println("Inicio de sesión exitoso: " + usuario.getNombres());
-            //Crear PanelPantallaPrincipal y hacer visible
+            BusquedaEventoPanel busqueda = new BusquedaEventoPanel();
+            busqueda.setVisible(true);
+            this.setVisible(false);
               
         } else {
             JOptionPane.showMessageDialog(this, "Correo electrónico o contraseña incorrectos", "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
@@ -190,4 +193,5 @@ public class IniciarSesionPanel extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
-}
+
+  }

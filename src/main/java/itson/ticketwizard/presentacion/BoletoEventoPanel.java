@@ -8,6 +8,7 @@ import itson.ticketwizard.dtos.BoletoEventoDTO;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.sql.Date;
@@ -36,17 +37,27 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     private JLabel lblTotal;
     private JPanel panelBoletosDisponibles;
     private JPanel panelBoletosSeleccionados;
+    private javax.swing.JButton jButtonCancelar;
 
     /**
      * Creates new form BoletoEventoPanel
      */
     
     public BoletoEventoPanel(){
-        
+        initComponents();
+        setLocationRelativeTo(null);    
     }
     
     public BoletoEventoPanel(List<BoletoEventoDTO> boletos) {
         initComponents();
+        
+            // Inicializar lista si es null
+        if (boletosSeleccionados == null) {
+            boletosSeleccionados = new ArrayList<>();
+        }
+
+        actualizarPanelSeleccionados(); 
+    
         boletosSeleccionados = new ArrayList<>();
         total = 0;
 
@@ -61,8 +72,12 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         panelBoletosSeleccionados.setLayout(new BoxLayout(panelBoletosSeleccionados, BoxLayout.Y_AXIS));
         panelBoletosSeleccionados.setBackground(new Color(90, 14, 51)); // Color de fondo
 
-        panelTotal.setLayout(new BorderLayout());
-        panelTotal.add(lblTotal, BorderLayout.CENTER);
+        panelTotal.setLayout(new FlowLayout(FlowLayout.LEFT));
+        panelTotal.add(lblTotal);
+        panelTotal.revalidate();
+        panelTotal.repaint();
+
+
         
         jPanel2.setLayout(new BorderLayout());
         jPanel2.add(panelBoletosSeleccionados, BorderLayout.CENTER);
@@ -71,8 +86,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
 
         cargarBoletos(boletos);
 
-        jPanel2.add(lblTotal);
-        this.setLocationRelativeTo(null);
+
 
     }
 
@@ -98,6 +112,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         panelTotal = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -172,7 +187,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, -1));
 
         panelTotal.setBackground(new java.awt.Color(90, 14, 51));
 
@@ -180,14 +195,19 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         panelTotal.setLayout(panelTotalLayout);
         panelTotalLayout.setHorizontalGroup(
             panelTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
+            .addGap(0, 150, Short.MAX_VALUE)
         );
         panelTotalLayout.setVerticalGroup(
             panelTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        jPanel2.add(panelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 120, 30));
+        jPanel2.add(panelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 150, 40));
+
+        jButton2.setBackground(new java.awt.Color(132, 47, 88));
+        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jButton2.setText("Regresar");
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 90, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 180, 240, 340));
 
@@ -286,9 +306,17 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         panelBoletosSeleccionados2.revalidate();
         panelBoletosSeleccionados2.repaint();
 
-        // Habilitar o deshabilitar el botón "Continuar"
+         // Deshabilitar botón "Continuar" si no hay boletos seleccionados
         jButton1.setEnabled(!boletosSeleccionados.isEmpty());
+
+        // O si boletosSeleccionados aún no está inicializado, asegúrate de que es una lista vacía:
+        if (boletosSeleccionados == null || boletosSeleccionados.isEmpty()) {
+            jButton1.setEnabled(false);
+        }
+
+
     }
+    
     private void actualizarTotal() {
         total = boletosSeleccionados.stream().mapToDouble(BoletoEventoDTO::getPrecio).sum();
         lblTotal.setText("Total: $" + total);
@@ -315,6 +343,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

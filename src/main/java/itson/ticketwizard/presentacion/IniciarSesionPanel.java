@@ -59,6 +59,7 @@ public class IniciarSesionPanel extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(133, 34, 82));
         jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setText("    Contrasena");
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +71,7 @@ public class IniciarSesionPanel extends javax.swing.JFrame {
 
         jTextField2.setBackground(new java.awt.Color(133, 34, 82));
         jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setText("    Usuario");
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +89,7 @@ public class IniciarSesionPanel extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(133, 34, 82));
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 8)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("No tienes una cuenta? Registrate");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

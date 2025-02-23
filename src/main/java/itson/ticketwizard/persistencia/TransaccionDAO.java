@@ -21,6 +21,7 @@ import java.util.List;
 public class TransaccionDAO {
     
     private ManejadorConexiones manejadorConexiones;
+    private BoletoDAO boletoDAO;
     
     public TransaccionDAO(ManejadorConexiones manejadorConexiones){
         this.manejadorConexiones = manejadorConexiones;
@@ -71,27 +72,35 @@ public class TransaccionDAO {
         return listaTransacciones;       
     }
     
-    public boolean registrarTransaccion(Integer idComprador, Integer idVendedor, float monto, Integer idApartado){
-        String codigoSQL = """
-                            INSERT INTO(idComprador, idVendedor, monto, idApartado)
-                            VALUES(?,?,?,?);
-                            """;
-                            
-           try{
-            Connection conexion = manejadorConexiones.crearConexion();
-            PreparedStatement comando = conexion.prepareStatement(codigoSQL);
-       
-            comando.setInt(1, idComprador);
-            comando.setInt(2, idVendedor);
-            comando.setFloat(3, monto);
-            comando.setInt(4, idApartado);
-            
-           }catch(SQLException ex){
-               System.err.println(ex.getMessage());
-           }
-        
+    public boolean registrarTransaccion(Integer idComprador, Integer idVendedor, float monto, Integer idApartado, Integer cantidadBoletos, Integer numSerie, float precio) {
+    String codigoSQL = """
+                       INSERT INTO transacciones (idComprador, idVendedor, monto, idApartado)
+                       VALUES (?, ?, ?, ?);
+                       """;
+
+    try {
+        Connection conexion = manejadorConexiones.crearConexion();
+        PreparedStatement comando = conexion.prepareStatement(codigoSQL);
+
+        comando.setInt(1, idComprador);
+        comando.setInt(2, idVendedor);
+        comando.setFloat(3, monto);
+        comando.setInt(4, idApartado);
+        comando.executeUpdate();
+
+        for (int i = 0; i < cantidadBoletos; i++) {
+            if (!boletoDAO.comprarBoleto(numSerie, idComprador, precio)) {
+                System.err.println("Error al comprar el boleto " + (i + 1));
+                return false;
+            }
+        }
+
+        System.out.println("Transacción registrada y boletos comprados con éxito.");
+        return true;
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
         return false;
-        
+    }
     }
     
 }

@@ -15,6 +15,7 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
      */
     public RecargarSaldoPanel() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -114,6 +115,11 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 110, 30));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 255));
@@ -237,6 +243,12 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PerfilUsuarioPanel perfilUsuario = new PerfilUsuarioPanel();
+        perfilUsuario.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

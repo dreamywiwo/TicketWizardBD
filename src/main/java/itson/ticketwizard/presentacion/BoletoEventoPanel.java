@@ -41,6 +41,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         lblTotal.setFont(new Font("Leelawadee UI Semilight", Font.BOLD, 16));
         lblTotal.setForeground(Color.WHITE);
         jPanel2.add(lblTotal);
+        this.setLocationRelativeTo(null);
     }
 
     /**

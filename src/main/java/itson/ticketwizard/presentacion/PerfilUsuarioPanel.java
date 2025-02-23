@@ -15,6 +15,7 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
      */
     public PerfilUsuarioPanel() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -162,12 +163,22 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(36, 11, 30));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/IconoVerBoletos.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, 60, 60));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(36, 11, 30));
         jButton4.setText("Editar Datos");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 170, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
@@ -176,12 +187,30 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        RecargarSaldoPanel recargar = new RecargarSaldoPanel();
+        recargar.setVisible(true);
+        this.setVisible(false);
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        EditarInformacionUsuarioPanel editarInfo = new EditarInformacionUsuarioPanel();
+        editarInfo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       
+        BoletosUsuarioPanel boletosUsuario = new BoletosUsuarioPanel();
+        boletosUsuario.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

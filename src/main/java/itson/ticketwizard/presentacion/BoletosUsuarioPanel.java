@@ -15,6 +15,7 @@ public class BoletosUsuarioPanel extends javax.swing.JFrame {
      */
     public BoletosUsuarioPanel() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

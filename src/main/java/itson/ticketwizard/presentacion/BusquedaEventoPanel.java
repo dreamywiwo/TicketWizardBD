@@ -4,6 +4,17 @@
  */
 package itson.ticketwizard.presentacion;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 /**
  *
  * @author Dana Chavez
@@ -15,9 +26,46 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
      */
     public BusquedaEventoPanel() {
         initComponents();
+        agregarPaneles();
+        this.setLocationRelativeTo(null);
     }
-    
-    
+
+    private void agregarPaneles() {
+        JPanel contenedorPaneles = new JPanel();
+        contenedorPaneles.setLayout(new BoxLayout(contenedorPaneles, BoxLayout.Y_AXIS));
+
+        for (int i = 0; i < 15; i++) { // Agregar más eventos para que aparezca la barra de desplazamiento
+            final int index = i + 1; // Crear una variable final para evitar el problema
+
+            JPanel panel = new JPanel();
+            panel.setLayout(new BorderLayout());
+            panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+            JLabel etiqueta = new JLabel("Evento " + index);
+            JPanel botonesPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Alineación a la derecha
+
+            JButton btnSeleccionar = new JButton("Seleccionar");
+            JButton btnInformacion = new JButton("Información");
+
+            btnSeleccionar.addActionListener(e -> {
+                BoletoEventoPanel boletoFrame = new BoletoEventoPanel();
+                boletoFrame.setVisible(true);
+                this.setVisible(false);
+            });
+            btnInformacion.addActionListener(e -> JOptionPane.showMessageDialog(this, "Información del evento " + index));
+
+            botonesPanel.add(btnSeleccionar);
+            botonesPanel.add(btnInformacion);
+
+            panel.add(etiqueta, BorderLayout.WEST);
+            panel.add(botonesPanel, BorderLayout.EAST);
+
+            contenedorPaneles.add(panel);
+        }
+
+        JScrollPane scrollPane = new JScrollPane(contenedorPaneles);
+        jScrollPane2.setViewportView(scrollPane);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

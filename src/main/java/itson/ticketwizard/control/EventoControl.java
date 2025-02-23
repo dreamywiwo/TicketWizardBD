@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package itson.ticketwizard.control;
 import itson.ticketwizard.persistencia.EventoDAO;
 import itson.ticketwizard.entidades.Evento;
@@ -22,6 +19,11 @@ public class EventoControl {
         this.eventoDAO = eventoDAO;
     }
      
+    //     public void iniciarCasoUso(){
+//        this.formX = new RegistroArtista(this);
+//        this.formX.setVisible(true);
+//    }
+    
     public Evento buscarEventoPorId(Integer idEvento) {
         if (idEvento == null || idEvento <= 0) {
             throw new IllegalArgumentException("El identificador del evento es inválido.");

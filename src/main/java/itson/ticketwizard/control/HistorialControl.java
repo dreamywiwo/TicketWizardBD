@@ -18,6 +18,11 @@ public class HistorialControl {
     }
 
     
+    //     public void iniciarCasoUso(){
+//        this.formX = new RegistroArtista(this);
+//        this.formX.setVisible(true);
+//    }
+    
     public List<Historial> obtenerHistorialBoletos(Integer idUsuario) {
         if (idUsuario == null || idUsuario <= 0) {
             throw new IllegalArgumentException("El identificador del usuario es inválido.");

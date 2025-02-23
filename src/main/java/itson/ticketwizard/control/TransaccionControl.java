@@ -18,6 +18,11 @@ public class TransaccionControl {
         this.transaccionDAO = transaccionDAO;
     }
     
+    //     public void iniciarCasoUso(){
+//        this.formX = new RegistroArtista(this);
+//        this.formX.setVisible(true);
+//    }
+    
     public boolean registrarTransaccion(Integer idComprador, Integer idVendedor, float monto, Integer idApartado, Integer cantidadBoletos, Integer numSerie, float precio) {
 
         if (idComprador == null || idVendedor == null) {

@@ -24,7 +24,10 @@ public class UsuarioControl {
     public UsuarioControl(UsuarioDAO usuarioDAO) {
         this.usuarioDAO = usuarioDAO;
     }
-
+//     public void iniciarCasoUso(){
+//        this.formX = new RegistroArtista(this);
+//        this.formX.setVisible(true);
+//    }
 
 //    public void iniciarCasoUso() {
 //        this.formIniciarSesion = new FormIniciarSesion(this);

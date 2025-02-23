@@ -13,10 +13,16 @@ import itson.ticketwizard.persistencia.ApartadoDAO;
 public class ApartadoControl {  
     private ApartadoDAO apartadoDAO;
 
+    
     public ApartadoControl(ApartadoDAO apartadoDAO) {
         this.apartadoDAO = apartadoDAO;
     }
-
+    
+//     public void iniciarCasoUso(){
+//        this.formX = new RegistroArtista(this);
+//        this.formX.setVisible(true);
+//    }
+     
     public boolean registrarApartado(Integer numSerie, Integer idUsuario) {
         if (numSerie == null || numSerie <= 0) {
             throw new IllegalArgumentException("El número de serie debe ser mayor que cero y no nulo.");

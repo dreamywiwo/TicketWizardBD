@@ -4,6 +4,10 @@
  */
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.dtos.UsuarioDTO;
+import itson.ticketwizard.persistencia.UsuarioDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dana Chavez
@@ -17,6 +21,8 @@ public class IniciarSesionPanel extends javax.swing.JFrame {
         initComponents();
     }
 
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -124,7 +130,18 @@ public class IniciarSesionPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+     String correoElectronico = jTextField2.getText();
+        String contrasena = jTextField1.getText();
+
+        UsuarioDTO usuario = usuarioDAO.iniciarSesion(correoElectronico, contrasena);
+
+        if (usuario != null) {
+            System.out.println("Inicio de sesión exitoso: " + usuario.getNombres());
+            //Crear PanelPantallaPrincipal y hacer visible
+              
+        } else {
+            JOptionPane.showMessageDialog(this, "Correo electrónico o contraseña incorrectos", "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

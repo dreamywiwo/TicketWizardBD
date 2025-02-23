@@ -14,7 +14,7 @@ import java.sql.Time;
 public class BoletoEventoDTO {
     
     private Integer numSerie;
-    private float precio;
+    private double precio;
     private String disponibilidad;
     private String tipo;
     private Integer numAsiento;
@@ -26,7 +26,7 @@ public class BoletoEventoDTO {
     private String ciudad;
     private String nombreLocal;
 
-    public BoletoEventoDTO(Integer numSerie, float precio, String disponibilidad, String tipo, Integer numAsiento, String fila, Integer idEvento, String nombreEvento, Date fechaEvento, Time horaEvento, String ciudad, String nombreLocal) {
+    public BoletoEventoDTO(Integer numSerie, double precio, String disponibilidad, String tipo, Integer numAsiento, String fila, Integer idEvento, String nombreEvento, Date fechaEvento, Time horaEvento, String ciudad, String nombreLocal) {
         this.numSerie = numSerie;
         this.precio = precio;
         this.disponibilidad = disponibilidad;
@@ -41,7 +41,7 @@ public class BoletoEventoDTO {
         this.nombreLocal = nombreLocal;
     }
 
-    public BoletoEventoDTO(float precio, String disponibilidad, String tipo, Integer numAsiento, String fila, String nombreEvento, Date fechaEvento, Time horaEvento, String ciudad, String nombreLocal) {
+    public BoletoEventoDTO(double precio, String disponibilidad, String tipo, int numAsiento, String fila, String nombreEvento, Date fechaEvento, Time horaEvento, String ciudad, String nombreLocal) {
         this.precio = precio;
         this.disponibilidad = disponibilidad;
         this.tipo= tipo;
@@ -62,11 +62,11 @@ public class BoletoEventoDTO {
         this.numSerie = numSerie;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 

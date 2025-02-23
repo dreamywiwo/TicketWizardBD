@@ -56,6 +56,7 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
         jButton3.setText("Editar Datos");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(36, 11, 30));
@@ -152,7 +153,6 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(36, 11, 30));
         jButton2.setText("Ver Transacciones");
-        jButton2.setActionCommand("Ver Transacciones");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -162,7 +162,6 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(36, 11, 30));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/IconoVerBoletos.png"))); // NOI18N
-        jButton5.setActionCommand("");
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, 60, 60));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));

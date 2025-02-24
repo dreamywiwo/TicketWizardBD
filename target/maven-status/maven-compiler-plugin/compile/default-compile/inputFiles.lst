@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Transaccion.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\EventoDAO.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\BoletoEventoDTO.java
@@ -24,10 +23,12 @@ C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\ManejadorConexiones.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\control\HistorialControl.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\control\UsuarioControl.java
+C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\NewMain.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\ResumenCompraPanel.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\BoletoEventoTransaccion.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\control\ApartadoControl.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\TransaccionDAO.java
+C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BusquedaEventoFormato.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\IniciarSesionPanel.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\ticketWizard.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\PerfilUsuarioPanel.java
@@ -44,48 +45,3 @@ C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\control\BoletoControl.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\ApartadoDAO.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BoletoUsuarioFormato.java
-=======
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\control\ApartadoControl.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\VentaBoletoPanel.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BoletosUsuarioPanel.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\BoletoEventoTransaccionDTO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\control\BoletoControl.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\control\EventoControl.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\HistorialDAO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\ResumenCompraPanel.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\BoletoEventoDTO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\TransaccionDTO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\HistorialDTO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Historial.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\control\HistorialControl.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\IniciarSesionPanel.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Evento.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\PerfilUsuarioPanel.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\EventoDTO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\RecargarSaldoPanel.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Transaccion.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\control\TransaccionControl.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\control\UsuarioControl.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\DireccionUsuario.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\ManejadorConexiones.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BusquedaEventoPanel.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Apartado.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\UsuarioDTO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\BoletoEventoTransaccion.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\UsuarioDAO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BoletoEventoPanel.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\BoletoDAO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Boleto.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\ApartadoDTO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\ticketWizard.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\DireccionUsuarioDTO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\BoletoDTO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\TransaccionDAO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\BoletoEvento.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\EventoApp.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Usuario.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\EventoDAO.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BoletoPanel.java
-C:\Users\payde\OneDrive\Escritorio\Documents\GitHub\TicketWizardBDD\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\ApartadoDAO.java
->>>>>>> dd0d3030e2fa72ba3251515d10b9a0d30059005d

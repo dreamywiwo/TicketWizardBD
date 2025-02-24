@@ -275,10 +275,10 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         BoletoDAO boletoDAO = new BoletoDAO(conexiones);
-        Integer idUsuario = getIdUsuario();
+//        Integer idUsuario = getIdUsuario();
 
         for (BoletoEventoDTO boleto : boletosSeleccionados) {
-            boletoDAO.registrarApartado(boleto.getNumSerie(), idUsuario);
+//            boletoDAO.registrarApartado(boleto.getNumSerie(), idUsuario);
         }
 
         ResumenCompraPanel resumen = new ResumenCompraPanel();

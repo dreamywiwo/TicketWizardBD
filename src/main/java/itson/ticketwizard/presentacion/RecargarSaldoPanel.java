@@ -20,12 +20,11 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
         private double montoRecarga;
         private double saldoActual;
 
-        public RecargarSaldoPanel(UsuarioControl usuarioControl, int idUsuario) {
-            this.usuarioControl = usuarioControl;
-            this.idUsuario = idUsuario;
+        public RecargarSaldoPanel() {
             initComponents();
             obtenerSaldoActual(); 
             actualizarSaldo();
+            setLocationRelativeTo(null);
         }
 
         
@@ -64,10 +63,6 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
         boton500 = new javax.swing.JButton();
         boton1000 = new javax.swing.JButton();
         boton2000 = new javax.swing.JButton();
-        otraCantidad = new javax.swing.JTextField();
-        saldoActual = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        lblSaldoActual = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -229,35 +224,6 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
         });
         jPanel1.add(boton2000, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 130, 40));
 
-        otraCantidad.setBackground(new java.awt.Color(36, 11, 30));
-        otraCantidad.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        otraCantidad.setForeground(new java.awt.Color(255, 255, 255));
-        otraCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        otraCantidad.setText("Otro");
-        otraCantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        otraCantidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                otraCantidadActionPerformed(evt);
-            }
-        });
-        jPanel1.add(otraCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, 130, 40));
-
-        saldoActual.setBackground(new java.awt.Color(36, 11, 30));
-        saldoActual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        saldoActual.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
-
-        lblSaldoActual.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        lblSaldoActual.setForeground(new java.awt.Color(255, 255, 255));
-        lblSaldoActual.setText("Saldo a recargar:");
-        saldoActual.add(lblSaldoActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 40));
-
-        jPanel1.add(saldoActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 130, 40));
-
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
 
         pack();
@@ -283,22 +249,6 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
         actualizarMontoRecarga(2000.0);
     }//GEN-LAST:event_boton2000ActionPerformed
 
-    private void otraCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otraCantidadActionPerformed
-                                            
-            try {
-                double cantidad = Double.parseDouble(otraCantidad.getText());
-                if (cantidad > 0) {
-                    actualizarMontoRecarga(cantidad);
-                    otraCantidad.setText(""); // Limpiar campo después de selección
-                } else {
-                    JOptionPane.showMessageDialog(this, "Ingrese un monto válido");
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Ingrese un número válido");
-            }
-        
-    }//GEN-LAST:event_otraCantidadActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PerfilUsuarioPanel perfilUsuario = new PerfilUsuarioPanel();
         perfilUsuario.setVisible(true);
@@ -310,11 +260,11 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
     
     private void obtenerSaldoActual() {
-            this.saldoActual = usuarioControl.obtenerSaldo(idUsuario);
+//            this.saldoActual = usuarioControl.obtenerSaldo(idUsuario);
         }
 
         private void actualizarSaldo() {
-            lblSaldoActual.setText("Saldo actual: $" + saldoActual);
+//            lblSaldoActual.setText("Saldo actual: $" + saldoActual);
         }
 
         private void actualizarMontoRecarga(double monto) {
@@ -394,12 +344,8 @@ public class RecargarSaldoPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel lblSaldoActual;
-    private javax.swing.JTextField otraCantidad;
-    private javax.swing.JPanel saldoActual;
     // End of variables declaration//GEN-END:variables
 }

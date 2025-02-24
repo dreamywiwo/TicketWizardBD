@@ -6,7 +6,6 @@ package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.dtos.BoletoDTO;
 import itson.ticketwizard.dtos.BoletoEventoDTO;
-import itson.ticketwizard.persistencia.ApartadoDAO;
 import itson.ticketwizard.persistencia.BoletoDAO;
 import itson.ticketwizard.persistencia.ManejadorConexiones;
 import java.awt.BorderLayout;
@@ -275,7 +274,12 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ApartadoDAO apartadoDAO = new ApartadoDAO(conexiones);
+        BoletoDAO boletoDAO = new BoletoDAO(conexiones);
+        Integer idUsuario = getIdUsuario();
+
+        for (BoletoEventoDTO boleto : boletosSeleccionados) {
+            boletoDAO.registrarApartado(boleto.getNumSerie(), idUsuario);
+        }
 
         ResumenCompraPanel resumen = new ResumenCompraPanel();
         resumen.setVisible(true);

@@ -50,41 +50,41 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
         return listaEvento;
     }
 
-    private void agregarPaneles(List<EventoDTO> listaEventos) {
-        JPanel contenedorPaneles = new JPanel();
-        contenedorPaneles.setLayout(new BoxLayout(contenedorPaneles, BoxLayout.Y_AXIS));
-
-        for (EventoDTO evento : listaEventos) {
-            JPanel panel = new JPanel();
-            panel.setLayout(new BorderLayout());
-            panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-
-            JLabel etiqueta = new JLabel(evento.getNombreEvento());
-            JPanel botonesPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Alineación a la derecha
-
-            JButton btnSeleccionar = new JButton("Seleccionar");
-            JButton btnInformacion = new JButton("Información");
-
-            btnSeleccionar.addActionListener(e -> {
-                BoletoEventoPanel boletoFrame = new BoletoEventoPanel();
-                boletoFrame.setVisible(true);
-                this.setVisible(false);
-            });
-
-            btnInformacion.addActionListener(e -> JOptionPane.showMessageDialog(this, "Información del evento: " + evento.getDescripcion()));
-
-            botonesPanel.add(btnSeleccionar);
-            botonesPanel.add(btnInformacion);
-
-            panel.add(etiqueta, BorderLayout.WEST);
-            panel.add(botonesPanel, BorderLayout.EAST);
-
-            contenedorPaneles.add(panel);
-        }
-
-        JScrollPane scrollPane = new JScrollPane(contenedorPaneles);
-        jScrollPane2.setViewportView(scrollPane);
-    }
+//    private void agregarPaneles(List<EventoDTO> listaEventos) {
+//        JPanel contenedorPaneles = new JPanel();
+//        contenedorPaneles.setLayout(new BoxLayout(contenedorPaneles, BoxLayout.Y_AXIS));
+//
+//        for (EventoDTO evento : listaEventos) {
+//            JPanel panel = new JPanel();
+//            panel.setLayout(new BorderLayout());
+//            panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+//
+//            JLabel etiqueta = new JLabel(evento.getNombreEvento());
+//            JPanel botonesPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Alineación a la derecha
+//
+//            JButton btnSeleccionar = new JButton("Seleccionar");
+//            JButton btnInformacion = new JButton("Información");
+//
+//            btnSeleccionar.addActionListener(e -> {
+//                BoletoEventoPanel boletoFrame = new BoletoEventoPanel();
+//                boletoFrame.setVisible(true);
+//                this.setVisible(false);
+//            });
+//
+//            btnInformacion.addActionListener(e -> JOptionPane.showMessageDialog(this, "Información del evento: " + evento.getDescripcion()));
+//
+//            botonesPanel.add(btnSeleccionar);
+//            botonesPanel.add(btnInformacion);
+//
+//            panel.add(etiqueta, BorderLayout.WEST);
+//            panel.add(botonesPanel, BorderLayout.EAST);
+//
+//            contenedorPaneles.add(panel);
+//        }
+//
+//        JScrollPane scrollPane = new JScrollPane(contenedorPaneles);
+//        jScrollPane2.setViewportView(scrollPane);
+//    }
 
 
     /**

@@ -60,10 +60,9 @@ public class BusquedaEventoFormato extends JPanel {
         btnObtenerBoletos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                BoletoEventoPanel boletoEvento = new BoletoEventoPanel();
-                BusquedaEventoPanel panel = new BusquedaEventoPanel();
+                BoletoEventoPanel boletoEvento = new BoletoEventoPanel(evento.getIdEvento());
                 boletoEvento.setVisible(true);
-                panel.setVisible(false);
+
             }
         });
 

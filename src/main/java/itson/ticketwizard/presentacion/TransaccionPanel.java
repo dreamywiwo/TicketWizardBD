@@ -6,6 +6,7 @@ package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.dtos.BoletoEventoTransaccionDTO;
 import itson.ticketwizard.dtos.TransaccionDTO;
+import itson.ticketwizard.persistencia.ManejadorConexiones;
 import itson.ticketwizard.persistencia.TransaccionDAO;
 import java.awt.Color;
 import java.awt.Component;
@@ -29,9 +30,10 @@ public class TransaccionPanel extends javax.swing.JFrame {
     private JPanel panelLista;
     private JPanel panelBoletos;
     private TransaccionDAO transaccionDAO;
+    ManejadorConexiones conexion = new ManejadorConexiones();
 
     public TransaccionPanel(int idUsuario) {
-        transaccionDAO = new TransaccionDAO(); 
+        transaccionDAO = new TransaccionDAO(conexion); 
         initComponents();
         inicializarListaTransacciones();
         inicializarPanelBoletos();

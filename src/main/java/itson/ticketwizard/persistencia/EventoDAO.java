@@ -125,6 +125,7 @@ public class EventoDAO {
         List<EventoDTO> listaEventos = new ArrayList<>();
         String codigoSQL = """
                             SELECT 
+                                idEvento,
                                 nombreEvento, 
                                 nombreLocal,
                                 ciudad,
@@ -143,6 +144,7 @@ public class EventoDAO {
                 
                 EventoDTO evento = new EventoDTO(
                         
+                        resultadosConsulta.getInt("idEvento"),
                         resultadosConsulta.getString("nombreEvento"),
                         resultadosConsulta.getString("nombreLocal"),
                         resultadosConsulta.getString("ciudad"),

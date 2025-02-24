@@ -22,6 +22,10 @@ public class TransaccionDAO {
 
     private ManejadorConexiones manejadorConexiones;
     private BoletoDAO boletoDAO;
+    
+    public TransaccionDAO() {
+        
+    }
 
     public TransaccionDAO(ManejadorConexiones manejadorConexiones) {
         this.manejadorConexiones = manejadorConexiones;

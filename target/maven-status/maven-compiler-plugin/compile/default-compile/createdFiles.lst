@@ -33,6 +33,8 @@ itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$5.class
 itson\ticketwizard\dtos\DireccionUsuarioDTO.class
 itson\ticketwizard\persistencia\BoletoDAO.class
 itson\ticketwizard\persistencia\ApartadoDAO.class
+itson\ticketwizard\presentacion\ResumenCompraPanel$2.class
+itson\ticketwizard\presentacion\TransaccionPanel.class
 itson\ticketwizard\presentacion\IniciarSesionPanel$2.class
 itson\ticketwizard\presentacion\PerfilUsuarioPanel$5.class
 itson\ticketwizard\dtos\ApartadoDTO.class
@@ -42,9 +44,7 @@ itson\ticketwizard\presentacion\BusquedaEventoPanel.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$6.class
 itson\ticketwizard\presentacion\BoletoEventoPanel$1.class
 itson\ticketwizard\presentacion\BoletoUsuarioFormato.class
-itson\ticketwizard\presentacion\TransaccionesPanel.class
 itson\ticketwizard\presentacion\ResumenCompraPanel$1.class
-itson\ticketwizard\presentacion\TransaccionesPanel$1.class
 itson\ticketwizard\control\HistorialControl.class
 itson\ticketwizard\entidades\Historial.class
 itson\ticketwizard\dtos\BoletoEventoDTO.class
@@ -55,11 +55,14 @@ itson\ticketwizard\presentacion\BusquedaEventoPanel$2.class
 itson\ticketwizard\control\EventoControl.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$8.class
 itson\ticketwizard\presentacion\RecargarSaldoPanel$1.class
+itson\ticketwizard\presentacion\ResumenCompraFormato.class
 itson\ticketwizard\entidades\Usuario.class
 itson\ticketwizard\presentacion\RecargarSaldoPanel$4.class
 itson\ticketwizard\presentacion\PerfilUsuarioPanel.class
 itson\ticketwizard\presentacion\PerfilUsuarioPanel$3.class
+itson\ticketwizard\presentacion\ResumenApartadoPanel$1.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$10.class
+itson\ticketwizard\presentacion\TransaccionFormato.class
 itson\ticketwizard\dtos\UsuarioDTO.class
 itson\ticketwizard\presentacion\PerfilUsuarioPanel$1.class
 itson\ticketwizard\presentacion\RecargarSaldoPanel$7.class
@@ -82,6 +85,7 @@ itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$3.class
 itson\ticketwizard\dtos\HistorialDTO.class
 itson\ticketwizard\control\ApartadoControl.class
+itson\ticketwizard\presentacion\ResumenApartadoPanel.class
 itson\ticketwizard\presentacion\ResumenCompraPanel.class
 itson\ticketwizard\presentacion\IniciarSesionPanel$5.class
 itson\ticketwizard\presentacion\VentaBoletoPanel$1.class

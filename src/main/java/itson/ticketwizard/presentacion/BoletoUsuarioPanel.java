@@ -105,19 +105,19 @@ public class BoletoUsuarioPanel extends javax.swing.JFrame {
     private void inicializarPanelBoletos(List<BoletoEventoTransaccionDTO> boletos) {
         panelBoletos = new JPanel();
         panelBoletos.setLayout(new BoxLayout(panelBoletos, BoxLayout.Y_AXIS));
-        panelBoletos.setBackground(new Color(36, 11, 30)); // Mantener el mismo color de fondo
+        panelBoletos.setBackground(new Color(36, 11, 30)); 
 
         panelBoletos.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         for (BoletoEventoTransaccionDTO boleto : boletos) {
             BoletoUsuarioFormato panelBoleto = new BoletoUsuarioFormato(boleto);
-            panelBoleto.setAlignmentX(Component.CENTER_ALIGNMENT); // Centrar el boleto dentro del panel
+            panelBoleto.setAlignmentX(Component.CENTER_ALIGNMENT);
             panelBoletos.add(panelBoleto);
-            panelBoletos.add(Box.createRigidArea(new Dimension(0, 10))); // Espacio entre boletos
+            panelBoletos.add(Box.createRigidArea(new Dimension(0, 10))); 
         }
 
         jScrollPane1.setViewportView(panelBoletos);
-        jScrollPane1.getViewport().setBackground(new Color(36, 11, 30)); // Mantener el fondo del scroll
+        jScrollPane1.getViewport().setBackground(new Color(36, 11, 30)); 
     }
     
     /**

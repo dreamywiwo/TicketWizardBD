@@ -37,6 +37,10 @@ public class ResumenCompraPanel extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        lblTotal = new javax.swing.JPanel();
+        lblResumen = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -73,6 +77,8 @@ public class ResumenCompraPanel extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 690, -1));
+
+        jScrollPane1.setBorder(null);
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 310, 310));
 
         jPanel3.setBackground(new java.awt.Color(206, 204, 205));
@@ -103,19 +109,66 @@ public class ResumenCompraPanel extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("*Compra final - No se aceptan devoluciones");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 260, 20));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 260, 20));
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 190, 30));
+
+        lblTotal.setBackground(new java.awt.Color(206, 204, 205));
+
+        javax.swing.GroupLayout lblTotalLayout = new javax.swing.GroupLayout(lblTotal);
+        lblTotal.setLayout(lblTotalLayout);
+        lblTotalLayout.setHorizontalGroup(
+            lblTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        lblTotalLayout.setVerticalGroup(
+            lblTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 130, 50));
+
+        lblResumen.setBackground(new java.awt.Color(206, 204, 205));
+
+        javax.swing.GroupLayout lblResumenLayout = new javax.swing.GroupLayout(lblResumen);
+        lblResumen.setLayout(lblResumenLayout);
+        lblResumenLayout.setHorizontalGroup(
+            lblResumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 220, Short.MAX_VALUE)
+        );
+        lblResumenLayout.setVerticalGroup(
+            lblResumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(lblResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 220, 70));
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Realiza tu compra y paga");
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 190, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 300, 310));
 
         jLabel6.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 30)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("MENSAJE DE ORDEN");
+        jLabel6.setText("CONFIRMA TU ORDEN!");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Informacion de la confirmacion");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, -1, -1));
+        jLabel7.setText("Aqui tenemos un resumen de tu compra.");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rayamediana.png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, -1, -1));
@@ -130,6 +183,10 @@ public class ResumenCompraPanel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +224,8 @@ public class ResumenCompraPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -182,5 +241,7 @@ public class ResumenCompraPanel extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel lblResumen;
+    private javax.swing.JPanel lblTotal;
     // End of variables declaration//GEN-END:variables
 }

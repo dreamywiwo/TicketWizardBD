@@ -346,10 +346,12 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
 
     }
     
-    private void actualizarTotal() {
-        total = boletosSeleccionados.stream().mapToDouble(BoletoEventoDTO::getPrecio).sum();
+    private float actualizarTotal() {
+        total = (boletosSeleccionados.stream().mapToDouble(BoletoEventoDTO::getPrecio).sum());
         lblTotal.setText("Total: $" + total);
+        return (float)total;
     }
+    
     /**
      * @param args the command line arguments
      */

@@ -13,25 +13,25 @@ import java.sql.Time;
  */
 public class BoletoEventoTransaccionDTO {
     
-    private Integer numSerie;
-    private float precio;
-    private String tipo;
-    private Integer numAsiento;
-    private String fila;
+    public Integer numSerie;
+    public float precio;
+    public String tipo;
+    public Integer numAsiento;
+    public String fila;
     private Integer idEvento;
     private Integer idUsuario;
 
-    private String nombreEvento;
-    private String nombreLocal;
-    private String descripcion;
-    private Date fechaEvento;
-    private Time horaEvento;
-    private String ciudad;
+    public String nombreEvento;
+    public String nombreLocal;
+    public String descripcion;
+    public Date fechaEvento;
+    public Time horaEvento;
+    public String ciudad;
     private String calle;
     private String colonia;
     
-    private Integer idTransaccion;
-    private Date fechaHora;
+    public Integer idTransaccion;
+    public Date fechaHora;
     private float monto;
     private float comision;
     private Integer idVendedor;

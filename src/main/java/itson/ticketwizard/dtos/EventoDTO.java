@@ -40,6 +40,7 @@ public class EventoDTO {
     public EventoDTO(String nombreEvento, String nombreLocal, String ciudad, Date fechaEvento, Time horaEvento) {
         this.nombreEvento = nombreEvento;
         this.nombreLocal = nombreLocal;
+        this.ciudad = ciudad;
         this.fechaEvento = fechaEvento;
         this.horaEvento = horaEvento;
     }

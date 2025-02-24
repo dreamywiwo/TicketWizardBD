@@ -144,7 +144,9 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 60, -1));
-        bg.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 700, 340));
+
+        jScrollPane2.setBorder(null);
+        bg.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 700, 330));
 
         jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
@@ -207,39 +209,38 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
+    
+    private void agregarEventos(java.util.List<EventoDTO> eventos) {
+        JPanel contenedorEventos = new JPanel();
+        contenedorEventos.setLayout(new BoxLayout(contenedorEventos, BoxLayout.Y_AXIS)); 
+        contenedorEventos.setBackground(new Color(36, 11, 30)); 
 
+        for (EventoDTO evento : eventos) {
+            BusquedaEventoFormato panelEvento = new BusquedaEventoFormato(evento, null);
+            contenedorEventos.add(panelEvento);
+        }
+
+        jScrollPane2.setViewportView(contenedorEventos);
+        jScrollPane2.revalidate();
+        jScrollPane2.repaint();
+    }
+   
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BusquedaEventoPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BusquedaEventoPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BusquedaEventoPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BusquedaEventoPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BusquedaEventoPanel().setVisible(true);
+                BusquedaEventoPanel ventana = new BusquedaEventoPanel();
+                ventana.setVisible(true);
+
+                java.util.List<EventoDTO> eventos = new java.util.ArrayList<>();
+                eventos.add(new EventoDTO("CONCIERTO DE ROCK", "Auditorio Nacional", "CDMX", null, null));
+                eventos.add(new EventoDTO("Concierto de Rock", "Auditorio Nacional", "CDMX", null, null));
+                eventos.add(new EventoDTO("Concierto de Rock", "Auditorio Nacional", "CDMX", null, null));
+                eventos.add(new EventoDTO("Concierto de Rock", "Auditorio Nacional", "CDMX", null, null));
+
+                ventana.agregarEventos(eventos);
             }
         });
     }

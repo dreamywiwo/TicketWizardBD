@@ -206,7 +206,7 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
        
-        BoletosUsuarioPanel boletosUsuario = new BoletosUsuarioPanel();
+        BoletoUsuarioPanel boletosUsuario = new BoletoUsuarioPanel();
         boletosUsuario.setVisible(true);
         this.setVisible(false);
         

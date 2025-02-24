@@ -15,6 +15,7 @@ public class ResumenCompraPanel extends javax.swing.JFrame {
      */
     public ResumenCompraPanel() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -154,5 +154,12 @@ public class BoletoEventoDTO {
     public void setNombreLocal(String nombreLocal) {
         this.nombreLocal = nombreLocal;
     }
+
+    @Override
+    public String toString() {
+        return "BoletoEventoDTO{" + "numSerie=" + numSerie + ", precio=" + precio + ", disponibilidad=" + disponibilidad + ", tipo=" + tipo + ", numAsiento=" + numAsiento + ", fila=" + fila + ", idEvento=" + idEvento + ", nombreEvento=" + nombreEvento + ", fechaEvento=" + fechaEvento + ", horaEvento=" + horaEvento + ", ciudad=" + ciudad + ", nombreLocal=" + nombreLocal + '}';
+    }
+    
+    
     
 }

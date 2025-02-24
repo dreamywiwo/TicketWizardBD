@@ -4,9 +4,15 @@
  */
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.dtos.EventoDTO;
+import itson.ticketwizard.persistencia.EventoDAO;
+import itson.ticketwizard.persistencia.ManejadorConexiones;
+import itson.ticketwizard.presentacion.EventoApp.Evento;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -21,27 +27,39 @@ import javax.swing.JScrollPane;
  */
 public class BusquedaEventoPanel extends javax.swing.JFrame {
 
+    ManejadorConexiones conexiones = new ManejadorConexiones();
+
     /**
      * Creates new form EventoPanel
      */
     public BusquedaEventoPanel() {
         initComponents();
-        agregarPaneles();
+        agregarPaneles(inicializarListaEventos());
+        
         this.setLocationRelativeTo(null);
     }
+    
+    private List<EventoDTO> inicializarListaEventos() {
+        List<EventoDTO> listaEvento;
+        EventoDAO eventoDAO = new EventoDAO(conexiones);
+        listaEvento = eventoDAO.obtenerTodosLosEventos();
+        if (listaEvento == null) {
+            listaEvento = new ArrayList<>(); // Evita que la lista sea nula
+        }
+        
+        return listaEvento;
+    }
 
-    private void agregarPaneles() {
+    private void agregarPaneles(List<EventoDTO> listaEventos) {
         JPanel contenedorPaneles = new JPanel();
         contenedorPaneles.setLayout(new BoxLayout(contenedorPaneles, BoxLayout.Y_AXIS));
 
-        for (int i = 0; i < 15; i++) { // Agregar más eventos para que aparezca la barra de desplazamiento
-            final int index = i + 1; // Crear una variable final para evitar el problema
-
+        for (EventoDTO evento : listaEventos) {
             JPanel panel = new JPanel();
             panel.setLayout(new BorderLayout());
             panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-            JLabel etiqueta = new JLabel("Evento " + index);
+            JLabel etiqueta = new JLabel(evento.getNombreEvento());
             JPanel botonesPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); // Alineación a la derecha
 
             JButton btnSeleccionar = new JButton("Seleccionar");
@@ -52,7 +70,8 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
                 boletoFrame.setVisible(true);
                 this.setVisible(false);
             });
-            btnInformacion.addActionListener(e -> JOptionPane.showMessageDialog(this, "Información del evento " + index));
+
+            btnInformacion.addActionListener(e -> JOptionPane.showMessageDialog(this, "Información del evento: " + evento.getDescripcion()));
 
             botonesPanel.add(btnSeleccionar);
             botonesPanel.add(btnInformacion);
@@ -66,6 +85,7 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
         JScrollPane scrollPane = new JScrollPane(contenedorPaneles);
         jScrollPane2.setViewportView(scrollPane);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

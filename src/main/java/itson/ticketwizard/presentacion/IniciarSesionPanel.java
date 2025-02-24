@@ -131,9 +131,11 @@ public class IniciarSesionPanel extends javax.swing.JFrame {
         String contrasena = jTextField1.getText();
 
         UsuarioDTO usuario = usuarioDAO.iniciarSesion(correoElectronico, contrasena);
+        UsuarioDTO usuarioIniciado = usuarioDAO.obtenerUsuarioPorCorreo(correoElectronico);
 
         if (usuario != null) {
             System.out.println("Inicio de sesión exitoso: " + usuario.getNombres());
+            PerfilUsuarioPanel perfil = new PerfilUsuarioPanel();
             BusquedaEventoPanel busqueda = new BusquedaEventoPanel();
             busqueda.setVisible(true);
             this.setVisible(false);

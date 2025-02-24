@@ -100,12 +100,23 @@ public class BoletoUsuarioPanel extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(36, 11, 30));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botonregresar.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 40, 70, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PerfilUsuarioPanel perfil = new PerfilUsuarioPanel();
+        perfil.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void inicializarPanelBoletos(List<BoletoEventoTransaccionDTO> boletos) {
         panelBoletos = new JPanel();

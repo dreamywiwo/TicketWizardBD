@@ -4,19 +4,88 @@
  */
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.dtos.BoletoEventoTransaccionDTO;
+import itson.ticketwizard.dtos.TransaccionDTO;
+import itson.ticketwizard.persistencia.TransaccionDAO;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.sql.Date;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 /**
  *
  * @author Dana Chavez
  */
 public class TransaccionPanel extends javax.swing.JFrame {
+       
+    private JPanel panelLista;
+    private JPanel panelBoletos;
+    private TransaccionDAO transaccionDAO;
 
-    /**
-     * Creates new form TransaccionesPanel
-     */
-    public TransaccionPanel() {
+    public TransaccionPanel(int idUsuario) {
+        transaccionDAO = new TransaccionDAO(); 
         initComponents();
+        inicializarListaTransacciones();
+        inicializarPanelBoletos();
+        cargarTransacciones(idUsuario);  
     }
 
+    private void inicializarListaTransacciones() {
+        panelLista = new JPanel();
+        panelLista.setLayout(new BoxLayout(panelLista, BoxLayout.Y_AXIS)); 
+        panelLista.setBackground(new Color(20, 20, 20));
+
+        jScrollPane1.setViewportView(panelLista); 
+    }
+    
+    private void inicializarPanelBoletos() {
+        panelBoletos = new JPanel();
+        panelBoletos.setLayout(new BoxLayout(panelBoletos, BoxLayout.Y_AXIS)); 
+        panelBoletos.setBackground(new Color(36, 11, 30));
+
+        panelBoletos.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+    }
+
+    private void cargarTransacciones(int idUsuario) {
+        List<TransaccionDTO> transacciones = transaccionDAO.obtenerTransaccionesPorUsuario(idUsuario);
+
+        panelLista.removeAll(); 
+
+        for (TransaccionDTO transaccion : transacciones) {
+            TransaccionFormato panelTransaccion = new TransaccionFormato(transaccion);
+            panelLista.add(panelTransaccion);
+            panelLista.add(Box.createVerticalStrut(10));
+        }
+
+        panelLista.revalidate();
+        panelLista.repaint();
+    }
+    
+    private void cargarBoletos(List<BoletoEventoTransaccionDTO> boletos) {
+        panelBoletos.removeAll(); 
+
+        for (BoletoEventoTransaccionDTO boleto : boletos) {
+            BoletoUsuarioFormato panelBoleto = new BoletoUsuarioFormato(boleto);
+            panelBoleto.setAlignmentX(Component.CENTER_ALIGNMENT);
+            panelBoletos.add(panelBoleto);
+            panelBoletos.add(Box.createRigidArea(new Dimension(0, 10))); 
+        }
+
+        jScrollPane1.setViewportView(panelBoletos);
+        jScrollPane1.getViewport().setBackground(new Color(36, 11, 30));
+
+        panelBoletos.revalidate();
+        panelBoletos.repaint();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,13 +175,16 @@ public class TransaccionPanel extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        int idUsuario = 1; // Cambia este ID para probar con diferentes usuarios
+        TransaccionPanel ventana = new TransaccionPanel(idUsuario);
+        ventana.setVisible(true);
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TransaccionPanel().setVisible(true);
-            }
-        });
+        // Simulación de boletos
+        List<BoletoEventoTransaccionDTO> boletosPrueba = new ArrayList<>();
+        boletosPrueba.add(new BoletoEventoTransaccionDTO(123456, "tipo", 1, "a","Concierto de Rock","Concierto de Rock" , "Concierto de Rock", Date.valueOf("2024-06-15"), Time.valueOf("20:00:00"), "A", 10, Date.valueOf("2024-06-15")));
+        boletosPrueba.add(new BoletoEventoTransaccionDTO(123456, "tipo", 1, "a","Concierto de Rock","Concierto de Rock" , "Concierto de Rock", Date.valueOf("2024-06-15"), Time.valueOf("20:00:00"), "A", 10, Date.valueOf("2024-06-15")));
+
+        ventana.cargarBoletos(boletosPrueba);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

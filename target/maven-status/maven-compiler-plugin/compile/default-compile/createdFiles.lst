@@ -33,6 +33,7 @@ itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$5.class
 itson\ticketwizard\dtos\DireccionUsuarioDTO.class
 itson\ticketwizard\persistencia\BoletoDAO.class
 itson\ticketwizard\persistencia\ApartadoDAO.class
+itson\ticketwizard\presentacion\ResumenCompraPanel$2.class
 itson\ticketwizard\presentacion\TransaccionPanel.class
 itson\ticketwizard\presentacion\IniciarSesionPanel$2.class
 itson\ticketwizard\presentacion\PerfilUsuarioPanel$5.class

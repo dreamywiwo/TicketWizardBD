@@ -48,13 +48,11 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
      * Creates new form BoletoEventoPanel
      */
     
-//    public BoletoEventoPanel(Integer idEvento){   
-//        this.idEvento = idEvento;
-//        initComponents();
-//        BoletoEventoPanel
-//        
-//        
-//    }
+    public BoletoEventoPanel(){   
+        initComponents();
+        setLocationRelativeTo(null);
+
+    }
     
     public List<BoletoEventoDTO> inicializarListaBoletos(Integer idEvento) {
     List<BoletoEventoDTO> listaBoletos;

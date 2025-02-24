@@ -142,6 +142,7 @@ public class TransaccionPanel extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 680, 310));
 
         jLabel7.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Mis Transacciones");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 

@@ -4,19 +4,71 @@
  */
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.control.UsuarioControl;
+import itson.ticketwizard.dtos.UsuarioDTO;
+import java.awt.Color;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dana Chavez
  */
 public class PerfilUsuarioPanel extends javax.swing.JFrame {
+    
+    private UsuarioControl usuarioControl;
+    private Integer idUsuario; 
+
 
     /**
      * Creates new form PerfilUsuarioPanel
      */
-    public PerfilUsuarioPanel() {
+    
+    public PerfilUsuarioPanel(){
+        initComponents();
+        setLocationRelativeTo(null);    
+    }
+    
+    public PerfilUsuarioPanel(UsuarioControl usuarioControl, Integer idUsuario) {
+        this.usuarioControl = usuarioControl;
+        this.idUsuario = idUsuario;
         initComponents();
         setLocationRelativeTo(null);
+        cargarDatosUsuario();
     }
+    
+    private void cargarDatosUsuario() {
+    UsuarioDTO usuario = usuarioControl.obtenerUsuarioPorId(idUsuario);
+    
+    if (usuario != null) {
+            JLabel lblNombre = new JLabel("Nombre: " + usuario.getNombres());
+            JLabel lblApellidoP = new JLabel("Apellido Paterno: " + usuario.getApellidoPaterno());
+            JLabel lblApellidoM = new JLabel("Apellido Materno: " + usuario.getApellidoMaterno());
+            JLabel lblCorreo = new JLabel("Correo: " + usuario.getCorreoElectronico());
+            JLabel lblSaldo = new JLabel("Saldo: $" + usuario.getSaldo());
+            
+            jPanel3.add(lblSaldo); // Agregamos el label al panel
+
+            lblNombre.setForeground(Color.WHITE);
+            lblApellidoP.setForeground(Color.WHITE);
+            lblApellidoM.setForeground(Color.WHITE);
+            lblCorreo.setForeground(Color.WHITE);
+            lblSaldo.setForeground(Color.WHITE);
+
+            jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
+            jPanel2.add(lblNombre);
+            jPanel2.add(lblApellidoP);
+            jPanel2.add(lblApellidoM);
+            jPanel2.add(lblCorreo);
+
+            jPanel2.revalidate();
+            jPanel2.repaint();
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró el usuario", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,6 +102,7 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -146,7 +199,6 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
         jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("  $ 0.00");
         jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 120, 30));
 
@@ -180,6 +232,21 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 170, -1));
+
+        jPanel3.setOpaque(false);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 120, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
 
@@ -271,5 +338,6 @@ public class PerfilUsuarioPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

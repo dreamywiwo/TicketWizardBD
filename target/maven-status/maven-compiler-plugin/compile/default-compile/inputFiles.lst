@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Transaccion.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\EventoDAO.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BoletoEventoPanel.java
@@ -49,52 +48,3 @@ C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\control\BoletoControl.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\ApartadoDAO.java
 C:\Users\Dana Chavez\OneDrive\Documents\NetBeansProjects\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BoletoUsuarioFormato.java
-=======
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\ApartadoDTO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\BoletoEventoDTO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\BoletoEvento.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Transaccion.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\EventoApp.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\HistorialDAO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\VentaBoletoPanel.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\BoletoDAO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\control\HistorialControl.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\control\EventoControl.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BusquedaEventoPanel.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Historial.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\control\UsuarioControl.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\BoletoEventoTransaccion.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\ManejadorConexiones.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BoletoUsuarioPanel.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\TransaccionesPanel.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\HistorialDTO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\PerfilUsuarioPanel.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\control\TransaccionControl.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\BoletoEventoTransaccionDTO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Evento.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\TransaccionDAO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\RecargarSaldoPanel.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\BoletoDTO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Apartado.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\IniciarSesionPanel.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\TransaccionDTO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BoletoUsuarioFormato.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\NewMain.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\EventoDTO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\UsuarioDTO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\dtos\DireccionUsuarioDTO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BoletoEventoPanel.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BusquedaEventoFormato.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\BoletoEventoFormato.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\control\ApartadoControl.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\DireccionUsuario.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\EventoDAO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\ApartadoDAO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\control\BoletoControl.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Usuario.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\persistencia\UsuarioDAO.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\presentacion\ResumenCompraPanel.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\entidades\Boleto.java
-C:\Users\leoca\Documents\GitHub\TicketWizardBD\src\main\java\itson\ticketwizard\ticketWizard.java
->>>>>>> 05b74ec18ca11fbccefc17a6f2116e374ac50d43

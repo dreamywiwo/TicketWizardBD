@@ -7,7 +7,6 @@ package itson.ticketwizard.presentacion;
 import itson.ticketwizard.dtos.EventoDTO;
 import itson.ticketwizard.persistencia.EventoDAO;
 import itson.ticketwizard.persistencia.ManejadorConexiones;
-import itson.ticketwizard.presentacion.EventoApp.Evento;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;

@@ -72,6 +72,7 @@ itson\ticketwizard\presentacion\RecargarSaldoPanel.class
 itson\ticketwizard\presentacion\EditarInformacionUsuarioPanel$9.class
 itson\ticketwizard\dtos\BoletoDTO.class
 itson\ticketwizard\presentacion\BoletoUsuarioPanel.class
+itson\ticketwizard\presentacion\BusquedaEventoFormato$1.class
 itson\ticketwizard\entidades\Boleto.class
 itson\ticketwizard\dtos\BoletoEventoTransaccionDTO.class
 itson\ticketwizard\presentacion\EventoApp.class

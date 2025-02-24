@@ -6,9 +6,12 @@ package itson.ticketwizard.presentacion;
 
 import itson.ticketwizard.dtos.EventoDTO;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class BusquedaEventoFormato extends JPanel {
+
     private EventoDTO evento;
     private BusquedaEventoPanel parentPanel;
 
@@ -18,7 +21,7 @@ public class BusquedaEventoFormato extends JPanel {
 
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createMatteBorder(2, 0, 2, 0, Color.WHITE));
-        setBackground(new Color(36, 11, 30)); 
+        setBackground(new Color(36, 11, 30));
 
         JLabel lblLocalCiudad = new JLabel(evento.getNombreLocal() + " - " + evento.getCiudad());
         lblLocalCiudad.setFont(new Font("Leelawadee UI Semilight", Font.BOLD, 16));
@@ -32,7 +35,7 @@ public class BusquedaEventoFormato extends JPanel {
 
         JLabel lblBoletosDisponibles = new JLabel("BOLETOS DISPONIBLES");
         lblBoletosDisponibles.setFont(new Font("Leelawadee UI Semilight", Font.BOLD, 18));
-        lblBoletosDisponibles.setForeground(new Color(255, 182, 193)); 
+        lblBoletosDisponibles.setForeground(new Color(255, 182, 193));
         lblBoletosDisponibles.setHorizontalAlignment(SwingConstants.CENTER);
 
         JLabel lblFechaHora = new JLabel("<html>" + evento.getFechaEvento() + "<br>" + evento.getHoraEvento() + "</html>");
@@ -54,13 +57,23 @@ public class BusquedaEventoFormato extends JPanel {
         btnObtenerBoletos.setFont(new Font("Century Gothic", Font.BOLD, 12));
         btnObtenerBoletos.setForeground(new Color(0, 0, 0));
 
+        btnObtenerBoletos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BoletoEventoPanel boletoEvento = new BoletoEventoPanel();
+                BusquedaEventoPanel panel = new BusquedaEventoPanel();
+                boletoEvento.setVisible(true);
+                panel.setVisible(false);
+            }
+        });
+
         JButton btnMasInformacion = new JButton("Más Información");
         btnMasInformacion.setPreferredSize(new Dimension(150, 30));
         btnMasInformacion.setBackground(Color.WHITE);
         btnMasInformacion.setFont(new Font("Century Gothic", Font.BOLD, 12));
         btnMasInformacion.setForeground(new Color(0, 0, 0));
 
-        JPanel btnPanel = new JPanel(new GridBagLayout()); 
+        JPanel btnPanel = new JPanel(new GridBagLayout());
         btnPanel.setOpaque(false);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;

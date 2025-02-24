@@ -34,7 +34,7 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
      */
     public BusquedaEventoPanel() {
         initComponents();
-        agregarPaneles(inicializarListaEventos());
+        agregarEventos(inicializarListaEventos());
         
         this.setLocationRelativeTo(null);
     }
@@ -210,7 +210,7 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
     
-    private void agregarEventos(java.util.List<EventoDTO> eventos) {
+    private void agregarEventos(List<EventoDTO> eventos) {
         JPanel contenedorEventos = new JPanel();
         contenedorEventos.setLayout(new BoxLayout(contenedorEventos, BoxLayout.Y_AXIS)); 
         contenedorEventos.setBackground(new Color(36, 11, 30)); 
@@ -233,12 +233,9 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
             public void run() {
                 BusquedaEventoPanel ventana = new BusquedaEventoPanel();
                 ventana.setVisible(true);
-
-                java.util.List<EventoDTO> eventos = new java.util.ArrayList<>();
-                eventos.add(new EventoDTO("CONCIERTO DE ROCK", "Auditorio Nacional", "CDMX", null, null));
-                eventos.add(new EventoDTO("Concierto de Rock", "Auditorio Nacional", "CDMX", null, null));
-                eventos.add(new EventoDTO("Concierto de Rock", "Auditorio Nacional", "CDMX", null, null));
-                eventos.add(new EventoDTO("Concierto de Rock", "Auditorio Nacional", "CDMX", null, null));
+                
+                EventoDAO eventoDAO = new EventoDAO(new ManejadorConexiones());
+                List<EventoDTO> eventos = eventoDAO.obtenerTodosLosEventos();
 
                 ventana.agregarEventos(eventos);
             }

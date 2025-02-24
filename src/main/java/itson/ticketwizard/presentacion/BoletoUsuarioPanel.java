@@ -4,19 +4,42 @@
  */
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.dtos.BoletoEventoDTO;
+import itson.ticketwizard.dtos.BoletoEventoTransaccionDTO;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.sql.Date;
+import java.sql.Time;
+import java.util.List;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Dana Chavez
  */
-public class BoletosUsuarioPanel extends javax.swing.JFrame {
+public class BoletoUsuarioPanel extends javax.swing.JFrame {
 
     /**
      * Creates new form BoletosUsuarioPanel
      */
-    public BoletosUsuarioPanel() {
+    private JPanel panelBoletos;
+    
+    public BoletoUsuarioPanel(){
+        initComponents();
+        setLocationRelativeTo(null);     
+    }
+
+    public BoletoUsuarioPanel(List<BoletoEventoTransaccionDTO> boletos) {
         initComponents();
         setLocationRelativeTo(null);
+        inicializarPanelBoletos(boletos);
+
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,13 +86,15 @@ public class BoletosUsuarioPanel extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rayamediana.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 710, 340));
+
+        jScrollPane1.setBorder(null);
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 690, 340));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("TUS BOLETOS");
+        jLabel7.setText("MIS BOLETOS");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 160, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
@@ -77,40 +102,45 @@ public class BoletosUsuarioPanel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void inicializarPanelBoletos(List<BoletoEventoTransaccionDTO> boletos) {
+        panelBoletos = new JPanel();
+        panelBoletos.setLayout(new BoxLayout(panelBoletos, BoxLayout.Y_AXIS));
+        panelBoletos.setBackground(new Color(36, 11, 30)); // Mantener el mismo color de fondo
+
+        panelBoletos.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        for (BoletoEventoTransaccionDTO boleto : boletos) {
+            BoletoUsuarioFormato panelBoleto = new BoletoUsuarioFormato(boleto);
+            panelBoleto.setAlignmentX(Component.CENTER_ALIGNMENT); // Centrar el boleto dentro del panel
+            panelBoletos.add(panelBoleto);
+            panelBoletos.add(Box.createRigidArea(new Dimension(0, 10))); // Espacio entre boletos
+        }
+
+        jScrollPane1.setViewportView(panelBoletos);
+        jScrollPane1.getViewport().setBackground(new Color(36, 11, 30)); // Mantener el fondo del scroll
+    }
+    
     /**
      * @param args the command line arguments
      */
+    
+    
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BoletosUsuarioPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BoletosUsuarioPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BoletosUsuarioPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BoletosUsuarioPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        java.awt.EventQueue.invokeLater(() -> {
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BoletosUsuarioPanel().setVisible(true);
-            }
+            List<BoletoEventoTransaccionDTO> boletosPrueba = List.of(
+                new BoletoEventoTransaccionDTO(123456, "tipo", 1, "a","Concierto de Rock","Concierto de Rock" , "Concierto de Rock", Date.valueOf("2024-06-15"), Time.valueOf("20:00:00"), "A", 10, Date.valueOf("2024-06-15")),
+                new BoletoEventoTransaccionDTO(120000, "tipo", 1, "a","Concierto de Rock","Concierto de Rock" , "Concierto de Rock", Date.valueOf("2024-06-15"), Time.valueOf("20:00:12"), "A", 10, Date.valueOf("2024-06-15")),
+                new BoletoEventoTransaccionDTO(134056, "tipo", 1, "a","Concierto de Rock","Concierto de Rock" , "Concierto de Rock", Date.valueOf("2024-06-15"), Time.valueOf("20:00:00"), "A", 10, Date.valueOf("2024-06-15"))
+            );
+
+            BoletoUsuarioPanel frame = new BoletoUsuarioPanel(boletosPrueba);
+            frame.setVisible(true);
         });
     }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

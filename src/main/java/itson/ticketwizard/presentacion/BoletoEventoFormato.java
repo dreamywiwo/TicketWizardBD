@@ -4,13 +4,13 @@ import itson.ticketwizard.dtos.BoletoEventoDTO;
 import java.awt.*;
 import javax.swing.*;
 
-public class BoletoPanel extends JPanel {
+public class BoletoEventoFormato extends JPanel {
     private BoletoEventoDTO boleto;
     private JButton btnSeleccionar;
     private boolean seleccionado = false;
     private BoletoEventoPanel parentPanel;
 
-    public BoletoPanel(BoletoEventoDTO boleto, BoletoEventoPanel parentPanel) {
+    public BoletoEventoFormato(BoletoEventoDTO boleto, BoletoEventoPanel parentPanel) {
         this.boleto = boleto;
         this.parentPanel = parentPanel;
 

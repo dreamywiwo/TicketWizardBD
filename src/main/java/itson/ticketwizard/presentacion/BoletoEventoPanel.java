@@ -258,7 +258,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     
     private void cargarBoletos(List<BoletoEventoDTO> boletos) {
         for (BoletoEventoDTO boleto : boletos) {
-            BoletoPanel boletoPanel = new BoletoPanel(boleto, this);
+            BoletoEventoFormato boletoPanel = new BoletoEventoFormato(boleto, this);
             panelBoletosDisponibles.add(boletoPanel);
         }
         panelBoletosDisponibles.revalidate();

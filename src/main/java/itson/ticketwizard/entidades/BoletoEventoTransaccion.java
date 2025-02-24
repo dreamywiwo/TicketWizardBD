@@ -62,9 +62,8 @@ public class BoletoEventoTransaccion {
         this.idComprador = idComprador;
     }
 
-    public BoletoEventoTransaccion(Integer numSerie, float precio, String tipo, Integer numAsiento, String fila, Integer idEvento, Integer idUsuario, String nombreEvento, String nombreLocal, String descripcion, Date fechaEvento, Time horaEvento, String ciudad, String calle, String colonia, Integer idTransaccion, Date fechaHora, float monto, float comision, Integer idVendedor, Integer idComprador) {
+    public BoletoEventoTransaccion(int numSerie, String tipo, Integer numAsiento, String fila, Integer idEvento, Integer idUsuario, String nombreEvento, String nombreLocal, String descripcion, Date fechaEvento, Time horaEvento, String ciudad, String calle, String colonia, Integer idTransaccion, Date fechaHora, float monto, float comision, Integer idVendedor, Integer idComprador) {
         this.numSerie = numSerie;
-        this.precio = precio;
         this.tipo = tipo;
         this.numAsiento = numAsiento;
         this.fila = fila;
@@ -86,6 +85,8 @@ public class BoletoEventoTransaccion {
         this.idComprador = idComprador;
     }
 
+    
+    
     public Integer getNumSerie() {
         return numSerie;
     }

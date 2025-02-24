@@ -31,14 +31,13 @@ public class ResumenApartadoPanel extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        panelSaldoTotal = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -65,32 +64,27 @@ public class ResumenApartadoPanel extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(206, 204, 205));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("se realizara automaticamente.");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
-
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Al momento de tener saldo suficiente, la compra ");
+        jLabel10.setText("Al momento de tener saldo suficiente, la compra se realizara automaticamente. ");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, 10));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("* Compra final - No se aceptan devoluciones.");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Cancelar");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 130, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 130, -1));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Recargar saldo");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 130, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 130, -1));
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setPreferredSize(new java.awt.Dimension(46, 10));
@@ -113,10 +107,22 @@ public class ResumenApartadoPanel extends javax.swing.JFrame {
         jLabel12.setText("TOTAL");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 300, 310));
+        panelSaldoTotal.setBackground(new java.awt.Color(206, 204, 205));
 
-        jScrollPane1.setBorder(null);
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 310, 310));
+        javax.swing.GroupLayout panelSaldoTotalLayout = new javax.swing.GroupLayout(panelSaldoTotal);
+        panelSaldoTotal.setLayout(panelSaldoTotalLayout);
+        panelSaldoTotalLayout.setHorizontalGroup(
+            panelSaldoTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 180, Short.MAX_VALUE)
+        );
+        panelSaldoTotalLayout.setVerticalGroup(
+            panelSaldoTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(panelSaldoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 180, 60));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 480, 310));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rayamediana.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, -1, -1));
@@ -132,7 +138,7 @@ public class ResumenApartadoPanel extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 30)); // NOI18N
-        jLabel8.setText("BOLETO APARTADO!");
+        jLabel8.setText("BOLETOS APARTADO!");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
@@ -189,10 +195,9 @@ public class ResumenApartadoPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelSaldoTotal;
     // End of variables declaration//GEN-END:variables
 }

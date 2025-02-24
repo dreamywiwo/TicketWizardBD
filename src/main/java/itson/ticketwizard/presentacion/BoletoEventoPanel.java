@@ -274,6 +274,13 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        BoletoDAO boletoDAO = new BoletoDAO(conexiones);
+        Integer idUsuario = getIdUsuario();
+
+        for (BoletoEventoDTO boleto : boletosSeleccionados) {
+            boletoDAO.registrarApartado(boleto.getNumSerie(), idUsuario);
+        }
+
         ResumenCompraPanel resumen = new ResumenCompraPanel();
         resumen.setVisible(true);
         this.setVisible(false);
@@ -346,10 +353,12 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
 
     }
     
-    private void actualizarTotal() {
-        total = boletosSeleccionados.stream().mapToDouble(BoletoEventoDTO::getPrecio).sum();
+    private float actualizarTotal() {
+        total = (boletosSeleccionados.stream().mapToDouble(BoletoEventoDTO::getPrecio).sum());
         lblTotal.setText("Total: $" + total);
+        return (float)total;
     }
+    
     /**
      * @param args the command line arguments
      */
@@ -362,9 +371,10 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
             boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "eee A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
             boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "bbb A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
             boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "wuuuuuuu A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
-
+            
+           
           BoletoEventoPanel panel = new BoletoEventoPanel(boletos);
-          
+          panel.setVisible(true);
            
         });
     }

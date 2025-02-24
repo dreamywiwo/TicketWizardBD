@@ -24,7 +24,7 @@ public class BoletoDAO {
     private ManejadorConexiones manejadorConexiones;
     private ApartadoDAO apartados;
 
-    public BoletoDAO() {
+    public BoletoDAO(ManejadorConexiones manejadorConexiones) {
         this.manejadorConexiones = new ManejadorConexiones();
     }
     
@@ -35,7 +35,7 @@ public class BoletoDAO {
                            SELECT                                
                            	b.precio,
                            	b.disponibilidad,
-                                b.tipo
+                                b.tipo,
                            	b.numAsiento,
                            	b.fila,
                            	e.nombreEvento,

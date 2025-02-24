@@ -4,7 +4,10 @@
  */
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.dtos.BoletoDTO;
 import itson.ticketwizard.dtos.BoletoEventoDTO;
+import itson.ticketwizard.persistencia.BoletoDAO;
+import itson.ticketwizard.persistencia.ManejadorConexiones;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -33,19 +36,33 @@ import javax.swing.SwingUtilities;
 public class BoletoEventoPanel extends javax.swing.JFrame {
     
     private List<BoletoEventoDTO> boletosSeleccionados;
+    private List<BoletoEventoDTO> boletos;
     private double total;
     private JLabel lblTotal;
     private JPanel panelBoletosDisponibles;
     private JPanel panelBoletosSeleccionados;
+    ManejadorConexiones conexiones = new ManejadorConexiones();
 
     /**
      * Creates new form BoletoEventoPanel
      */
     
-    public BoletoEventoPanel(){   
+    public BoletoEventoPanel(Integer idEvento){   
         initComponents();
+        BoletoEventoPanel panel = new BoletoEventoPanel(inicializarListaBoletos(idEvento));
         setLocationRelativeTo(null);
     }
+    
+    public List<BoletoEventoDTO> inicializarListaBoletos(Integer idEvento) {
+    List<BoletoEventoDTO> listaBoletos;
+    BoletoDAO boletoDAO = new BoletoDAO(conexiones);
+    listaBoletos = boletoDAO.obtenerBoletosDisponiblesPorEvento(idEvento);
+    if (listaBoletos == null) {
+        listaBoletos = new ArrayList<>(); // Evita que la lista sea nula
+    }
+    
+    return listaBoletos;
+}
     
     public BoletoEventoPanel(List<BoletoEventoDTO> boletos) {
         initComponents();

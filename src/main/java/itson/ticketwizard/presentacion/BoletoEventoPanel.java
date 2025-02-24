@@ -59,7 +59,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     BoletoDAO boletoDAO = new BoletoDAO(conexiones);
     listaBoletos = boletoDAO.obtenerBoletosDisponiblesPorEvento(idEvento);
     if (listaBoletos == null) {
-        listaBoletos = new ArrayList<>(); // Evita que la lista sea nula
+        listaBoletos = new ArrayList<>();
     }
         System.out.println(listaBoletos);
     return listaBoletos;

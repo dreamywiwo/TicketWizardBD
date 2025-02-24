@@ -51,6 +51,7 @@ public class VentaBoletoPanel extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel19.setText("FILA");
@@ -175,6 +176,10 @@ public class VentaBoletoPanel extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 180, 40));
 
+        jButton2.setBackground(new java.awt.Color(36, 11, 30));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botonregresar.png"))); // NOI18N
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 50, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
 
         pack();
@@ -218,6 +223,7 @@ public class VentaBoletoPanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

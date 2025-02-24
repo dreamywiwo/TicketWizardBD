@@ -276,7 +276,7 @@ public class EditarInformacionUsuarioPanel extends javax.swing.JFrame {
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rayadelgada.png"))); // NOI18N
         jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Regresar");

@@ -51,8 +51,8 @@ public class EventoControl {
     }
     
     
-    public List<Evento> obtenerTodosLosEventos() {
-        List<Evento> listaEventos = eventoDAO.obtenerTodosLosEventos();
+    public List<EventoDTO> obtenerTodosLosEventos() {
+        List<EventoDTO> listaEventos = eventoDAO.obtenerTodosLosEventos();
         if (listaEventos == null) {
             // En caso de error, se retorna una lista vacía para evitar nulls.
             listaEventos = new ArrayList<>();

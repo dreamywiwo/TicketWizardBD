@@ -102,7 +102,6 @@ public class EventoApp extends JFrame {
             this.fecha = fecha;
             this.ubicacion = ubicacion;
         }
-    }
 
     public static void main(String[] args) {
         List<Evento> eventos = List.of(
@@ -112,5 +111,7 @@ public class EventoApp extends JFrame {
         );
         new EventoApp(eventos);
     }
-}
+    }
+    }
+
 

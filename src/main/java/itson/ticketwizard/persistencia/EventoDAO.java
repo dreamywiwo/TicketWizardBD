@@ -21,11 +21,11 @@ import java.util.List;
 public class EventoDAO {
     
     private ManejadorConexiones manejadorConexiones;
-    
+   
     public EventoDAO(ManejadorConexiones manejadorConexiones){
         this.manejadorConexiones = manejadorConexiones;
     }
-    
+
     public Evento buscarEventoPorId(Integer idEvento){
          String codigoSQL = """
                              SELECT 
@@ -120,7 +120,7 @@ public class EventoDAO {
         
    
     
-    public List<Evento> obtenerTodosLosEventos() {
+    public List<EventoDTO> obtenerTodosLosEventos() {
         
         List<EventoDTO> listaEventos = new ArrayList<>();
         String codigoSQL = """
@@ -158,7 +158,7 @@ public class EventoDAO {
             System.err.println("Error al consultar los eventos: " + ex.getMessage());
         }    
         
-        return null;
+        return listaEventos;
         
     }
     

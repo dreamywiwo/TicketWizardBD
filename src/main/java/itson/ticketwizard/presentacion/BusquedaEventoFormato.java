@@ -4,16 +4,21 @@
  */
 package itson.ticketwizard.presentacion;
 
+import itson.ticketwizard.dtos.BoletoEventoDTO;
 import itson.ticketwizard.dtos.EventoDTO;
+import itson.ticketwizard.persistencia.BoletoDAO;
+import itson.ticketwizard.persistencia.ManejadorConexiones;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class BusquedaEventoFormato extends JPanel {
 
     private EventoDTO evento;
     private BusquedaEventoPanel parentPanel;
+    ManejadorConexiones conexiones = new ManejadorConexiones();
 
     public BusquedaEventoFormato(EventoDTO evento, BusquedaEventoPanel parentPanel) {
         this.evento = evento;
@@ -60,7 +65,7 @@ public class BusquedaEventoFormato extends JPanel {
         btnObtenerBoletos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                BoletoEventoPanel boletoEvento = new BoletoEventoPanel(evento.getIdEvento());
+                BoletoEventoPanel boletoEvento = new BoletoEventoPanel(inicializarListaBoletos(evento.getIdEvento()));
                 boletoEvento.setVisible(true);
 
             }
@@ -87,4 +92,15 @@ public class BusquedaEventoFormato extends JPanel {
         add(infoPanel, BorderLayout.CENTER);
         add(btnPanel, BorderLayout.EAST);
     }
+    
+    public java.util.List<BoletoEventoDTO> inicializarListaBoletos(Integer idEvento) {
+    java.util.List<BoletoEventoDTO> listaBoletos;
+    BoletoDAO boletoDAO = new BoletoDAO(conexiones);
+    listaBoletos = boletoDAO.obtenerBoletosDisponiblesPorEvento(idEvento);
+    if (listaBoletos == null) {
+        listaBoletos = new ArrayList<>(); // Evita que la lista sea nula
+    }
+        System.out.println(listaBoletos);
+    return listaBoletos;
+}
 }

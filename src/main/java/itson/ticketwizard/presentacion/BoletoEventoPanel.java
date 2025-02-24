@@ -48,14 +48,13 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
      * Creates new form BoletoEventoPanel
      */
     
-    public BoletoEventoPanel(Integer idEvento){   
-        this.idEvento = idEvento;
-        initComponents();
-        BoletoEventoPanel panel = new BoletoEventoPanel(inicializarListaBoletos(idEvento));
-        panel.setVisible(true);
-        setLocationRelativeTo(null);
-        
-    }
+//    public BoletoEventoPanel(Integer idEvento){   
+//        this.idEvento = idEvento;
+//        initComponents();
+//        BoletoEventoPanel
+//        
+//        
+//    }
     
     public List<BoletoEventoDTO> inicializarListaBoletos(Integer idEvento) {
     List<BoletoEventoDTO> listaBoletos;
@@ -64,7 +63,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     if (listaBoletos == null) {
         listaBoletos = new ArrayList<>();
     }
-    
+        System.out.println(listaBoletos);
     return listaBoletos;
 }
     
@@ -297,13 +296,15 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
         panelBoletosDisponibles.repaint();
     }
 
-    public void agregarBoletoSeleccionado(BoletoEventoDTO boleto) {
+    public List<BoletoEventoDTO> agregarBoletoSeleccionado(BoletoEventoDTO boleto) {
         if (!boletosSeleccionados.contains(boleto)) {
             boletosSeleccionados.add(boleto);
             actualizarTotal();
             actualizarPanelSeleccionados();
         }
+        return boletosSeleccionados;
     }
+    
 
     public void removerBoletoSeleccionado(BoletoEventoDTO boleto) {
         boletosSeleccionados.remove(boleto);
@@ -364,6 +365,7 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
             boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "bbb A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
             boletos.add(new BoletoEventoDTO(1700.00,"Sala 1", "wuuuuuuu A",52, "VIP", "a",null,null, "Fila A", "Asiento 1"));
 
+          BoletoEventoPanel panel = new BoletoEventoPanel(boletos);
           
            
         });
@@ -390,4 +392,6 @@ public class BoletoEventoPanel extends javax.swing.JFrame {
     private javax.swing.JPanel panelBoletosSeleccionados2;
     private javax.swing.JPanel panelTotal;
     // End of variables declaration//GEN-END:variables
+
+    
 }

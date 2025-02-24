@@ -112,6 +112,7 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(17, 17, 20));
 
@@ -196,6 +197,10 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rayadelgada.png"))); // NOI18N
         bg.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(36, 11, 30));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/perfilBoton.png"))); // NOI18N
+        bg.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
 
         pack();
@@ -243,6 +248,7 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;

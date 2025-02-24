@@ -38,6 +38,7 @@ public class BoletoDAO {
                                 b.tipo,
                            	b.numAsiento,
                            	b.fila,
+                                e.idEvento,
                            	e.nombreEvento,
                            	e.fechaEvento,
                            	e.horaEvento,
@@ -45,7 +46,7 @@ public class BoletoDAO {
                            	e.nombreLocal
                            FROM Boletos b
                            JOIN Eventos e ON b.idEvento = e.idEvento
-                           WHERE e.idEvento = ? AND Disponibilidad = 'Disponible';
+                           WHERE e.idEvento = ? AND b.disponibilidad = "Disponible";
                            """;
         try{
             Connection conexion = manejadorConexiones.crearConexion();
@@ -64,6 +65,7 @@ public class BoletoDAO {
                         resultadosConsulta.getString("tipo"),
                         resultadosConsulta.getInt("numAsiento"),
                         resultadosConsulta.getString("fila"),
+                        resultadosConsulta.getInt("idEvento"),
                         resultadosConsulta.getString("nombreEvento"),
                         resultadosConsulta.getDate("fechaEvento"),
                         resultadosConsulta.getTime("horaEvento"),

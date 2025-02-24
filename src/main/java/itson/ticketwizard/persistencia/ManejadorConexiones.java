@@ -17,7 +17,7 @@ public class ManejadorConexiones {
     // informacion para conectar a la bd
     private final String cadenaConexion = "jdbc:mysql://localhost/ticketWizard";
     private final String usuario = "root";
-    private final String contrasenia = "Danoninocongelado1!";
+    private final String contrasenia = "bases123";
     
     public Connection crearConexion() throws SQLException {
         Connection conexion = DriverManager.getConnection(

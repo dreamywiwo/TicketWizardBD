@@ -53,6 +53,19 @@ public class BoletoEventoDTO {
         this.ciudad = ciudad;
         this.nombreLocal = nombreLocal;
     }
+    
+    public BoletoEventoDTO(double precio, String disponibilidad, String tipo, int numAsiento, String fila,Integer idEvento, String nombreEvento, Date fechaEvento, Time horaEvento, String ciudad, String nombreLocal) {
+        this.precio = precio;
+        this.disponibilidad = disponibilidad;
+        this.tipo= tipo;
+        this.numAsiento = numAsiento;
+        this.fila = fila;
+        this.nombreEvento = nombreEvento;
+        this.fechaEvento = fechaEvento;
+        this.horaEvento = horaEvento;
+        this.ciudad = ciudad;
+        this.nombreLocal = nombreLocal;
+    }
 
     public int getNumSerie() {
         return numSerie;

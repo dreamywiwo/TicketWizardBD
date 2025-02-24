@@ -62,7 +62,7 @@ public class BusquedaEventoFormato extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 BoletoEventoPanel boletoEvento = new BoletoEventoPanel(evento.getIdEvento());
                 boletoEvento.setVisible(true);
-                
+
             }
         });
 

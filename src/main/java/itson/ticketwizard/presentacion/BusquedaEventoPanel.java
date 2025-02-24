@@ -199,6 +199,11 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(36, 11, 30));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/perfilBoton.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         bg.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
@@ -213,6 +218,12 @@ public class BusquedaEventoPanel extends javax.swing.JFrame {
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PerfilUsuarioPanel perfil = new PerfilUsuarioPanel();
+        perfil.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private void agregarEventos(List<EventoDTO> eventos) {
         JPanel contenedorEventos = new JPanel();
